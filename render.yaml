@@ -1,0 +1,25 @@
+# פריסה אוטומטית ב-Render — אתר סטטי, בלי שרת ובלי עלות
+services:
+  - type: web
+    name: baba-dede
+    runtime: static
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    buildCommand: ""
+    headers:
+      - path: /sw.js
+        name: Cache-Control
+        value: no-cache
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /recipes/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

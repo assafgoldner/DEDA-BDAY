@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>בבה ודדה — מיה וליאו גולדנר</title>
+<meta name="description" content="אתר זיכרון משפחתי למיה וליאו גולדנר — סיפורים, תמונות, ציר זמן, מתכונים ועץ משפחה.">
+<meta name="theme-color" content="#e07a5f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="בבה ודדה">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#fdf8f0; --bg2:#ffffff; --soft:#fff4e6; --soft2:#fdeede;
+  --ink:#3a3330; --ink2:#857568;
+  --acc:#e07a5f; --acc-d:#c75f45; --gold:#e3a93c; --sage:#8fb996; --sky:#6fa8c4;
+  --line:#f1e3d2; --shadow:0 2px 16px rgba(120,85,60,.09);
+  --shadow-l:0 8px 30px rgba(120,85,60,.14);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font-family:"Assistant","Heebo","Rubik","Segoe UI",system-ui,sans-serif;line-height:1.75}
+a{color:var(--acc-d)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(253,248,240,.93);
+ border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;gap:4px;align-items:center;overflow-x:auto;padding:9px 20px;
+ padding-top:max(9px,env(safe-area-inset-top))}
+nav .brand{font-weight:800;color:var(--acc-d);margin-left:14px;white-space:nowrap;
+ cursor:pointer;letter-spacing:.02em}
+nav button{background:none;border:0;padding:8px 13px;border-radius:999px;cursor:pointer;
+ font:inherit;font-size:.93rem;color:var(--ink2);white-space:nowrap;transition:.15s}
+nav button:hover{background:var(--soft);color:var(--acc-d)}
+nav button.on{background:var(--acc);color:#fff}
+#burger{display:none;background:var(--soft);color:var(--acc-d);border-radius:12px;
+ width:40px;height:40px;font-size:1.25rem;flex:0 0 auto;padding:0}
+@media(max-width:860px){
+ nav .wrap{flex-wrap:wrap;overflow:visible}
+ #burger{display:block;order:-1}
+ nav .brand{flex:1}
+ nav .links{display:none;width:100%;flex-direction:column;gap:2px;padding:8px 0 4px;
+  border-top:1px solid var(--line);margin-top:8px;max-height:65vh;overflow:auto}
+ nav .links.open{display:flex}
+ nav .links button{text-align:right;width:100%;padding:11px 14px;font-size:1rem;border-radius:12px}
+}
+@media(min-width:861px){nav .links{display:flex;gap:4px;flex-wrap:wrap}}
+
+section{display:none;padding:30px 0 70px}
+section.on{display:block;animation:fade .32s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+h2{font-size:1.95rem;margin:0 0 4px;color:var(--ink)}
+h2 .em{color:var(--acc)}
+h2:after{content:"";display:block;width:58px;height:4px;background:var(--gold);
+ border-radius:3px;margin-top:11px}
+.lead{color:var(--ink2);margin:14px 0 26px;max-width:72ch}
+h3{color:var(--ink);margin:0 0 8px}
+
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;
+ padding:20px 22px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+
+.btn{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:10px 20px;
+ font:inherit;font-weight:600;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--acc-d);transform:translateY(-1px)}
+.btn.sec{background:var(--soft);color:var(--acc-d)}
+.btn.sec:hover{background:var(--soft2)}
+.btn.sm{padding:6px 14px;font-size:.85rem;font-weight:500}
+input,textarea,select{width:100%;font:inherit;padding:10px 13px;border:1px solid var(--line);
+ border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+label{display:block;font-size:.85rem;color:var(--ink2);margin:11px 0 4px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tag{display:inline-block;background:var(--soft);color:var(--acc-d);border-radius:999px;
+ padding:3px 13px;font-size:.78rem;font-weight:600}
+.tag.g{background:#fdf0d4;color:#9a6c10}
+.tag.s{background:#e8f3ea;color:#4c7a58}
+
+/* ---------- home ---------- */
+#s-home{padding-top:0}
+.hero{background:linear-gradient(135deg,#fff6ea,#ffe9d6 55%,#ffdfc6);
+ border-radius:28px;padding:46px 40px;margin:26px 0 30px;position:relative;overflow:hidden;
+ box-shadow:var(--shadow-l);display:flex;gap:40px;align-items:center}
+.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+ background:radial-gradient(circle,rgba(227,169,60,.22),transparent 68%);
+ top:-170px;left:-110px}
+.hero-txt{flex:1;min-width:0;position:relative}
+.hero h1{margin:0;font-size:clamp(2.2rem,5.5vw,3.5rem);letter-spacing:.01em;color:#4a3a30;line-height:1.12}
+.hero .names{color:var(--acc-d);font-size:1.15rem;font-weight:600;margin-top:10px}
+.hero .tl2{color:var(--ink2);margin-top:14px;max-width:46ch}
+.hero .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.hero .chip{background:rgba(255,255,255,.75);border:1px solid rgba(224,122,95,.22);
+ border-radius:999px;padding:6px 15px;font-size:.87rem;font-weight:600;color:#6b4e3d}
+.hero-pic{flex:0 0 310px;position:relative;padding-bottom:52px}
+.hero-pic img{width:100%;border-radius:20px;box-shadow:0 12px 34px rgba(120,70,40,.26);
+ display:block;transform:rotate(-2.5deg);cursor:zoom-in;border:5px solid #fff}
+.hero-pic .hero-2{position:absolute;width:48%;bottom:0;left:-10px;transform:rotate(5deg);
+ box-shadow:0 8px 22px rgba(120,70,40,.3)}
+@media(max-width:820px){.hero{flex-direction:column;padding:34px 24px;text-align:center}
+ .hero-pic{flex:none;width:100%;max-width:290px}.hero .chips{justify-content:center}
+ .hero .tl2{margin-inline:auto}}
+
+/* ---- יום הולדת ---- */
+.bday{position:relative;overflow:hidden;border-radius:22px;margin-bottom:26px;
+ background:linear-gradient(135deg,#fffaf0,#fff2dc 55%,#ffe8c9);
+ border:1px solid #f3dcb8;box-shadow:var(--shadow-l);
+ display:flex;align-items:center;gap:26px;padding:26px 30px}
+.bday:before{content:"";position:absolute;inset:0;
+ background:radial-gradient(circle at 18% 120%,rgba(227,169,60,.3),transparent 62%)}
+.bday>*{position:relative}
+.bday .cake{flex:0 0 96px;text-align:center}
+.bday .num{font-size:2.9rem;font-weight:800;color:var(--acc);line-height:1}
+.bday .numl{font-size:.8rem;color:var(--ink2);letter-spacing:.06em}
+.bday h3{font-size:1.35rem;margin:0 0 6px}
+.bday p{margin:0;color:var(--ink2);max-width:62ch}
+.bday .acts{margin-top:14px;display:flex;gap:9px;flex-wrap:wrap}
+.flame{transform-origin:50% 100%;animation:flick 1.8s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-1.5deg);opacity:1}
+ 50%{transform:scale(1.09,.95) rotate(1.5deg);opacity:.9}}
+.spark{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--gold);
+ opacity:0;animation:rise 4.5s ease-in infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(10px) scale(.4)}
+ 18%{opacity:.85}60%{opacity:.5}100%{opacity:0;transform:translateY(-120px) scale(.2)}}
+@media(max-width:700px){.bday{flex-direction:column;text-align:center;padding:24px 20px}
+ .bday .acts{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.flame,.spark{animation:none}.spark{display:none}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:13px;margin-bottom:30px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:16px 10px;
+ text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.75rem;color:var(--acc);line-height:1.2}
+.stat span{font-size:.8rem;color:var(--ink2)}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px}
+. htile,.htile{background:var(--bg2);border:1px solid var(--line);border-radius:18px;
+ padding:22px;cursor:pointer;transition:.18s;box-shadow:var(--shadow);text-align:right}
+.htile:hover{transform:translateY(-4px);box-shadow:var(--shadow-l);border-color:var(--gold)}
+.htile .ic{font-size:1.7rem;line-height:1;margin-bottom:10px}
+.htile b{display:block;font-size:1.08rem;margin-bottom:5px}
+.htile span{font-size:.87rem;color:var(--ink2)}
+
+/* ---------- media / gallery ---------- */
+.tile{position:relative;border-radius:14px;overflow:hidden;background:var(--soft);
+ border:1px solid var(--line);aspect-ratio:1/1;box-shadow:var(--shadow)}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;transition:.3s}
+.tile:hover img{transform:scale(1.05)}
+.tile .cap{position:absolute;inset:auto 0 0 0;
+ background:linear-gradient(transparent,rgba(45,30,20,.82));
+ color:#fff;font-size:.79rem;padding:22px 9px 8px;line-height:1.45}
+.tile .x{position:absolute;top:7px;left:7px;background:rgba(0,0,0,.5);color:#fff;border:0;
+ border-radius:50%;width:25px;height:25px;cursor:pointer;line-height:1}
+.era{margin-bottom:36px}
+.era-t{font-size:1.3rem;color:var(--ink);border-bottom:2px solid var(--gold);
+ padding-bottom:8px;margin:0 0 15px;display:flex;gap:10px;align-items:center}
+
+/* ---------- timeline ---------- */
+.tl{border-right:3px solid var(--soft2);padding-right:24px;margin-right:9px}
+.tl .it{position:relative;margin-bottom:24px}
+.tl .it:before{content:"";position:absolute;right:-32px;top:9px;width:13px;height:13px;
+ background:var(--acc);border:3px solid var(--bg);border-radius:50%}
+.tl .yr{font-weight:700;color:var(--acc)}
+.big-tl .it:before{background:var(--gold)}
+.big-tl .it.life:before{background:var(--acc)}
+.big-tl .it.work:before{background:var(--sky)}
+.big-tl .it.home:before{background:var(--sage)}
+.lgnd{display:flex;gap:16px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin-bottom:18px}
+.lgnd i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-left:5px}
+
+/* ---------- tree ---------- */
+/* ---- family ---- */
+.fgen{margin-bottom:30px}
+.fgen-t{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:14px;
+ padding-right:13px;border-right:5px solid var(--gc);line-height:1.3}
+.fcard{background:var(--bg2);border:1px solid var(--line);border-top:4px solid var(--gc);
+ border-radius:16px;padding:16px 19px;box-shadow:var(--shadow)}
+.fnames{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.fp{font-weight:700;font-size:1.05rem;color:var(--ink)}
+.fp small{font-weight:400;color:var(--ink2);font-size:.8rem}
+.famp{color:var(--gc);font-weight:700}
+.fpar{font-size:.8rem;color:var(--ink2);margin-top:3px}
+.finfo{font-size:.9rem;color:var(--ink2);margin-top:9px;line-height:1.65}
+.fkids{margin-top:11px;padding-top:9px;border-top:1px dashed var(--line);font-size:.89rem}
+.fkids b{color:var(--gc)}
+#tree{position:relative;height:520px;background:#fffdfa;
+ background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;
+ border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.node{position:absolute;background:#fff;border:2px solid var(--gold);border-radius:13px;
+ padding:8px 14px;cursor:grab;box-shadow:var(--shadow);user-select:none;min-width:105px;text-align:center}
+.node.drag{cursor:grabbing;border-color:var(--acc);z-index:9}
+.node b{display:block;font-size:.94rem}
+.node small{color:var(--ink2);font-size:.75rem}
+
+/* ---------- misc ---------- */
+.memo{border-right:4px solid var(--gold);padding:3px 15px 3px 0;margin-bottom:17px}
+.memo .by{font-size:.82rem;color:var(--ink2)}
+.card .by{font-size:.82rem;color:var(--ink2);margin-top:11px;font-style:italic}
+.qa .q{font-weight:600;cursor:pointer;padding:13px 0;border-bottom:1px solid var(--line)}
+.qa .a{display:none;padding:11px 0 16px;color:var(--ink2)}
+.qa .open .a{display:block}
+.empty{color:var(--ink2);font-style:italic;padding:22px;text-align:center;
+ border:1px dashed var(--line);border-radius:14px;background:#fffdfa}
+.note{background:var(--soft);border:1px solid #f4d9c2;border-radius:14px;padding:13px 17px;
+ font-size:.9rem;color:#8a5a40;margin-bottom:18px}
+.drop{border:2px dashed #f0cdae;border-radius:16px;padding:26px;text-align:center;
+ color:var(--ink2);background:#fffcf7;cursor:pointer;transition:.15s}
+.drop:hover,.drop.hot{background:var(--soft);border-color:var(--acc)}
+
+/* ---------- lightbox ---------- */
+#lb{display:none;position:fixed;inset:0;background:rgba(48,34,25,.93);z-index:99;
+ align-items:center;justify-content:center;padding:18px}
+#lb .box{display:flex;gap:22px;max-width:1200px;width:100%;max-height:94vh;align-items:center}
+#lb .pic{flex:1 1 60%;display:flex;align-items:center;justify-content:center;min-width:0}
+#lb img{max-width:100%;max-height:90vh;border-radius:12px;box-shadow:0 10px 50px rgba(0,0,0,.5)}
+#lb .side{flex:0 0 340px;color:#fdf3e6;max-height:90vh;overflow:auto}
+#lb .side .yr{display:inline-block;background:var(--gold);color:#4a3520;border-radius:999px;
+ padding:4px 15px;font-size:.85rem;font-weight:700;margin-bottom:10px}
+#lb .side .era-s{font-size:.8rem;opacity:.72;margin-bottom:12px}
+#lb .side .cp{font-size:1.06rem;line-height:1.72;margin-bottom:18px}
+#lb .side .st{border-top:1px solid rgba(255,255,255,.22);padding-top:15px}
+#lb .side .st h4{margin:0 0 9px;color:var(--gold);font-size:1rem}
+#lb .side .st p{font-size:.9rem;line-height:1.68;opacity:.93;margin:0 0 9px}
+#lb .nums{font-size:.78rem;opacity:.55;margin-top:16px}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);
+ color:#fff;border:0;width:46px;height:72px;font-size:1.7rem;cursor:pointer;border-radius:12px}
+#lb .nav:hover{background:rgba(255,255,255,.3)}
+#lb .prev{right:14px} #lb .next{left:14px}
+#lb .close{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.14);color:#fff;
+ border:0;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+@media(max-width:820px){#lb .box{flex-direction:column;overflow:auto}
+ #lb .side{flex:none;width:100%} #lb img{max-height:48vh} #lb .nav{display:none}}
+
+/* ---------- recipes ---------- */
+.rec-wrap{display:flex;gap:22px;margin-top:15px;align-items:flex-start}
+.rec-scan{flex:0 0 230px;text-align:center}
+.rec-scan img{width:100%;border:1px solid var(--line);border-radius:12px;cursor:zoom-in;
+ background:#fff;box-shadow:var(--shadow)}
+.rec-hint{font-size:.74rem;color:var(--ink2);margin-top:5px}
+.rec-txt{flex:1;min-width:0}
+.rec-txt ul,.rec-txt ol{margin:6px 0 14px;padding-right:20px}
+.rec-txt li{margin-bottom:5px}
+.rec-note{background:var(--soft);border:1px solid #f4d9c2;border-radius:12px;
+ padding:10px 14px;font-size:.86rem;color:#8a5a40}
+@media(max-width:700px){.rec-wrap{flex-direction:column}.rec-scan{flex:none;width:100%;max-width:280px}}
+
+/* ---------- trivia ---------- */
+.modes{display:flex;gap:9px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.tv-bar{height:8px;background:var(--soft2);border-radius:5px;overflow:hidden;margin-bottom:17px}
+#tv-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--acc));
+ border-radius:5px;transition:width .35s ease}
+.tv-meta{font-size:.84rem;color:var(--ink2);margin-bottom:12px}
+.tv-q{font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.5;
+ margin:14px auto 14px;max-width:34ch}
+.tv-a{font-size:1.2rem;color:var(--acc-d);font-weight:700;line-height:1.6;max-width:46ch;
+ margin:0 auto;opacity:0;transform:translateY(8px);transition:.3s;min-height:2.2em}
+.tv-a.show{opacity:1;transform:none}
+.tv-note{font-size:.86rem;color:var(--ink2);max-width:46ch;margin:10px auto 0;opacity:0;transition:.3s}
+.tv-note.show{opacity:1}
+.tv-score{font-size:2.8rem;font-weight:800;color:var(--acc)}
+.opts{display:grid;gap:10px;max-width:460px;margin:0 auto}
+.opt{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 16px;
+ cursor:pointer;font:inherit;font-size:1rem;text-align:right;transition:.15s;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--gold);background:var(--soft)}
+.opt.ok{border-color:var(--sage);background:#eaf5ec;font-weight:700}
+.opt.no{border-color:#e8a79a;background:#fdeeea;opacity:.85}
+.opt:disabled{cursor:default}
+.brw{columns:2;column-gap:18px}
+@media(max-width:760px){.brw{columns:1}}
+.bcard{break-inside:avoid;background:var(--bg2);border:1px solid var(--line);border-radius:16px;
+ padding:16px 19px;margin-bottom:16px;box-shadow:var(--shadow)}
+.bcard .qq{font-weight:700;color:var(--ink);margin-bottom:5px}
+.bcard .aa{color:var(--acc-d);font-weight:600}
+.bcard .nn{font-size:.83rem;color:var(--ink2);margin-top:7px}
+
+/* ---------- places ---------- */
+.mapbox{background:#fffdfa;border:1px solid var(--line);border-radius:18px;padding:16px;
+ box-shadow:var(--shadow);margin-bottom:22px}
+.mapbox svg{width:100%;height:auto;max-height:640px;display:block;cursor:grab;touch-action:none}
+.mapbox svg.grabbing{cursor:grabbing}
+.maphint{font-size:.78rem;color:var(--ink2);text-align:center;margin-top:6px}
+.pin{cursor:pointer}
+.pin circle{transition:fill .15s}
+.pin:hover circle{fill:var(--acc-d)}
+.pin:hover text{font-weight:700}
+.mlgnd{display:flex;gap:14px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin:0 0 10px}
+.mlgnd i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-left:5px}
+.pl-card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:15px 18px;
+ box-shadow:var(--shadow)}
+.pl-card b{color:var(--ink)}
+.pl-card ul{margin:7px 0 0;padding-right:18px;color:var(--ink2);font-size:.9rem}
+.pl-card li{margin-bottom:3px}
+
+/* ---------- links ---------- */
+.lk{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.lk:last-child{border-bottom:0}
+.lk .ic{font-size:1.25rem}
+.lk a{font-weight:600;text-decoration:none}
+.lk a:hover{text-decoration:underline}
+.lk small{display:block;color:var(--ink2)}
+
+footer{background:#4a3a30;color:#f0e2d2;text-align:center;padding:30px;font-size:.9rem}
+footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap" id="nav"></div></nav>
+
+<div class="wrap">
+
+<!-- ============ בית ============ -->
+<section id="s-home" class="on">
+  <div class="hero">
+    <div class="hero-txt">
+      <h1>בבה ודדה</h1>
+      <div class="names">מיה וליאו גולדנר</div>
+      <div class="tl2">סיפור של מאה שנה — מסרייבו ומבאיה, דרך ברלין ודכאו,
+        אל חדר וחצי בשיכון יוגוסלביה, ומשם אל גינה, משתלה, ומשפחה של ארבעה דורות.</div>
+      <div class="chips">
+        <div class="chip">דדה · 1911–2013</div>
+        <div class="chip">בבה · 1921–2015</div>
+      </div>
+    </div>
+    <div class="hero-pic">
+      <img id="hero-img" alt="בבה ודדה" onclick="heroClick()">
+      <img id="hero-img2" class="hero-2" alt="בבה ודדה" onclick="heroClick(1)">
+    </div>
+  </div>
+
+  <div id="bday"></div>
+  <div class="stats" id="home-stats"></div>
+  <div class="tiles" id="home-tiles"></div>
+</section>
+
+<!-- ============ סיפורים ============ -->
+<section id="s-story">
+  <h2>הסיפורים</h2>
+  <p class="lead">הפרקים שלהלן תומללו משיחה משפחתית שבה אילן ויודית, הילדים של בבה ודדה,
+  עברו על התמונות וסיפרו. הדברים מובאים כפי שנאמרו — כל בן משפחה מוזמן לתקן או להוסיף.</p>
+  <div id="baked-stories"></div>
+
+  <h3 style="margin-top:34px">רגעים קטנים</h3>
+  <div id="baked-memos"></div>
+
+  <h3 style="margin-top:34px">פרקים שהמשפחה הוסיפה</h3>
+  <div id="story-list"></div>
+  <div class="card">
+    <h3>הוספת פרק</h3>
+    <label>כותרת</label><input id="st-t" placeholder="למשל: העלייה לארץ">
+    <label>תקופה / שנה</label><input id="st-y" placeholder="למשל: 1949">
+    <label>הסיפור</label><textarea id="st-b" rows="5"></textarea>
+    <label>נכתב על ידי</label><input id="st-w" placeholder="השם שלך">
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="addStory()">הוספה</button></div>
+  </div>
+</section>
+
+<!-- ============ ציר זמן ============ -->
+<section id="s-time">
+  <h2>ציר הזמן</h2>
+  <p class="lead">הכול במקום אחד — חיים, עבודה ובית, מ-1911 ועד היום.</p>
+  <div class="lgnd">
+    <span><i style="background:var(--acc)"></i>חיים ומשפחה</span>
+    <span><i style="background:var(--sky)"></i>העבודה של ליאו</span>
+    <span><i style="background:var(--sage)"></i>הבית והגינה</span>
+  </div>
+  <div class="card"><div class="tl big-tl" id="time-list"></div></div>
+</section>
+
+<!-- ============ גלריה ============ -->
+<section id="s-gallery">
+  <h2>גלריית תמונות</h2>
+  <p class="lead">מסודרת לפי תקופות, מהמוקדם למאוחר. לחיצה על תמונה פותחת אותה בגדול
+  יחד עם השנה והסיפור שמאחוריה.</p>
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <div><b>ארכיון המשפחה</b> <span class="tag" id="arch-n"></span></div>
+    <button class="btn sec sm" onclick="lbOpen(0)">צפייה במצגת מההתחלה</button>
+  </div>
+  <div id="arch-list" style="margin-bottom:34px"></div>
+
+  <h3>תמונות שהמשפחה הוסיפה</h3>
+  <p class="lead" style="margin-top:4px">גררו תמונות מהמחשב לתוך המסגרת. הן נשמרות בדפדפן שלכם.</p>
+  <div class="drop" data-target="photos">גררו לכאן תמונות — או לחצו לבחירה</div>
+  <div class="grid g3" id="photos-list" style="margin-top:20px"></div>
+</section>
+
+<!-- ============ ליאו ============ -->
+<section id="s-leo">
+  <h2>ליאו — <span class="em">האדריכל</span></h2>
+  <p class="lead">מהנדס-אדריכל, בוגר ברלין 1934. בנה בישראל למעלה משלושים וחמש שנה —
+  נמלי תעופה, מלונות, מפעלים, שכונות ומעבדות.</p>
+  <div class="grid g4" id="cv-stats" style="margin-bottom:24px"></div>
+  <div class="card"><h3>הדרך</h3><div class="tl" id="cv-path"></div></div>
+  <h3 style="margin-top:32px">הפרויקטים</h3>
+  <div class="row" id="cv-filters" style="margin:12px 0 18px"></div>
+  <div class="grid g2" id="cv-projects"></div>
+  <p id="cv-foot" class="lead" style="margin-top:18px"></p>
+  <div class="card" style="margin-top:26px">
+    <h3>מסמכים סרוקים</h3>
+    <div class="drop" data-target="docs">גררו לכאן מסמכים או תמונות סרוקות</div>
+    <div class="grid g3" id="docs-list" style="margin-top:16px"></div>
+  </div>
+  <h3 style="margin-top:26px">תוספות של המשפחה</h3>
+  <div class="card"><div class="tl" id="cv-list"></div></div>
+  <div class="card">
+    <h3>הוספת פרויקט או תחנה</h3>
+    <div class="grid g2">
+      <div><label>שנה</label><input id="cv-y" placeholder="1965"></div>
+      <div><label>שם הפרויקט / התפקיד</label><input id="cv-t"></div>
+    </div>
+    <label>פרטים</label><textarea id="cv-b" rows="3"></textarea>
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="addCv()">הוספה</button></div>
+  </div>
+</section>
+
+<!-- ============ מקומות ============ -->
+<section id="s-places">
+  <h2>המקומות</h2>
+  <p class="lead">כל מקום שעלה מהתמונות, מהסיפורים, מקורות החיים ומהטריוויה.
+  לחיצה על נקודה במפה מקפיצה לפרטים.</p>
+  <div class="row" style="margin-bottom:14px">
+    <button class="btn sm" id="mt-il" onclick="setMap('il')">🇮🇱 ישראל</button>
+    <button class="btn sec sm" id="mt-eu" onclick="setMap('eu')">🌍 אירופה והעולם</button>
+    <span style="flex:1"></span>
+    <button class="btn sec sm" onclick="mz(0.72)">＋</button>
+    <button class="btn sec sm" onclick="mz(1.38)">－</button>
+    <button class="btn sec sm" onclick="mReset()">איפוס</button>
+  </div>
+  <div class="mapbox"><div id="map-il"></div>
+    <div class="maphint">גלגלת או כפתורי הזום להתקרבות · גרירה להזזה</div></div>
+  <h3>בישראל</h3>
+  <div class="grid g2" id="pl-il" style="margin-bottom:34px"></div>
+  <h3>בעולם</h3>
+  <div class="grid g2" id="pl-world"></div>
+</section>
+
+<!-- ============ מתכונים ============ -->
+<section id="s-recipes">
+  <h2>המטבח</h2>
+  <p class="lead">המתכונים בכתב ידם — סרוקים, ולצידם פענוח. הטעמים הם חלק מהזיכרון.</p>
+  <div id="baked-recipes"></div>
+  <div class="card">
+    <h3>עוד מתכונים בכתב יד</h3>
+    <div class="drop" data-target="rphotos">גררו לכאן צילומים של מתכונים בכתב יד</div>
+    <div class="grid g3" id="rphotos-list" style="margin-top:16px"></div>
+  </div>
+  <div id="recipe-list"></div>
+  <div class="card">
+    <h3>הוספת מתכון מוקלד</h3>
+    <label>שם המתכון</label><input id="rc-t">
+    <label>קטגוריה</label>
+    <select id="rc-c"><option>מרקים</option><option>עיקריות</option><option>אפייה ועוגות</option>
+      <option>סלטים ותוספות</option><option>ריבות וקומפוטים</option><option>חגים</option><option>אחר</option></select>
+    <label>מצרכים (שורה לכל מצרך)</label><textarea id="rc-i" rows="4"></textarea>
+    <label>אופן ההכנה</label><textarea id="rc-b" rows="5"></textarea>
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="addRecipe()">הוספה</button></div>
+  </div>
+</section>
+
+<!-- ============ טריוויה ============ -->
+<section id="s-trivia">
+  <h2>טריוויה משפחתית</h2>
+  <p class="lead">כמה אתם באמת יודעים על בבה ודדה? בחרו איך לשחק.</p>
+  <div class="modes" id="tv-modes"></div>
+
+  <div id="tv-game" class="card" style="text-align:center;padding:30px 24px">
+    <div class="tv-bar"><div id="tv-fill"></div></div>
+    <div id="tv-meta" class="tv-meta"></div>
+    <div id="tv-cat" class="tag"></div>
+    <div id="tv-q" class="tv-q"></div>
+    <div id="tv-opts" class="opts"></div>
+    <div id="tv-a" class="tv-a"></div>
+    <div id="tv-note" class="tv-note"></div>
+    <div id="tv-btns" class="row" style="justify-content:center;margin-top:20px"></div>
+  </div>
+
+  <div id="tv-end" class="card" style="display:none;text-align:center;padding:38px 24px">
+    <div id="tv-score" class="tv-score"></div>
+    <div id="tv-msg" style="color:var(--ink2);margin:10px 0 24px"></div>
+    <button class="btn" onclick="tvStart()">סיבוב נוסף</button>
+  </div>
+
+  <div id="tv-browse" style="display:none"></div>
+</section>
+
+<!-- ============ עץ ============ -->
+<section id="s-tree">
+  <h2>עץ משפחת גולדנר</h2>
+  <p class="lead">חמישה דורות — מאיסו ואוממה ועד הנינים.</p>
+  <div id="fam"></div>
+
+  <h3 style="margin-top:34px">לוח חופשי</h3>
+  <p class="lead" style="margin-top:4px">מקום לשרטט קשרים בעצמכם. גררו שם למקום שמתאים לו,
+  לחיצה כפולה מסירה.</p>
+  <div class="card">
+    <div class="row">
+      <input id="nd-n" placeholder="שם" style="max-width:180px">
+      <input id="nd-d" placeholder="שנים / קרבה" style="max-width:180px">
+      <button class="btn" onclick="addNode()">הוספה</button>
+      <button class="btn sec" onclick="resetTree()">איפוס</button>
+    </div>
+  </div>
+  <div id="tree"></div>
+</section>
+
+<!-- ============ לינקים ============ -->
+<section id="s-links">
+  <h2>קישורים</h2>
+  <p class="lead">כל מה שקיים ברשת וקשור לבבה ודדה — אזכורים, כתבות, מאגרים, מסמכים.</p>
+  <div class="card">
+    <h3>מה שנמצא ברשת</h3>
+    <p style="color:var(--ink2);margin:2px 0 10px;font-size:.9rem">
+      ארבעת הראשונים הם מקורות שנמצאו בחיפוש ומזכירים את ליאו גולדנר בשמו, בעיקר סביב
+      מפעל פרמה-שרפ בנצרת עילית. השאר הם האזכורים שליאו עצמו רשם בקורות החיים,
+      בפרק "הופעות באינטרנט".</p>
+    <div id="links-baked"></div>
+  </div>
+  <h3 style="margin-top:28px">קישורים שהמשפחה הוסיפה</h3>
+  <div class="card" id="links-user"></div>
+  <div class="card">
+    <h3>הוספת קישור</h3>
+    <div class="grid g2">
+      <div><label>כותרת</label><input id="lk-t" placeholder="למשל: כתבה על המשתלה"></div>
+      <div><label>כתובת</label><input id="lk-u" placeholder="https://..." dir="ltr"></div>
+    </div>
+    <label>תיאור קצר</label><input id="lk-d">
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="addLink()">הוספה</button></div>
+  </div>
+</section>
+
+<!-- ============ שאלות ============ -->
+<section id="s-qa">
+  <h2>שאלות פתוחות</h2>
+  <p class="lead">מה שעוד לא ידוע. אם מישהו יודע תשובה — זה המקום.</p>
+  <div class="qa" id="qa-list"></div>
+  <div class="card">
+    <h3>הוספת שאלה או תשובה</h3>
+    <label>השאלה</label><input id="qa-q">
+    <label>התשובה (אם ידועה)</label><textarea id="qa-a" rows="3"></textarea>
+    <div class="row" style="margin-top:14px"><button class="btn" onclick="addQa()">הוספה</button></div>
+  </div>
+</section>
+
+<!-- ============ שמירה ============ -->
+<section id="s-data">
+  <h2>שמירה ושיתוף</h2>
+  <div class="note">
+    <b>חשוב לדעת:</b> מה שאתם מוסיפים נשמר בדפדפן המקומי בלבד. כדי לשתף — ייצאו קובץ גיבוי
+    ושלחו אותו, והצד השני ייבא אותו.
+  </div>
+  <div class="card">
+    <h3>גיבוי וייצוא</h3>
+    <div class="row">
+      <button class="btn" onclick="expJson()">ייצוא קובץ גיבוי</button>
+      <button class="btn sec" onclick="document.getElementById('imp').click()">ייבוא קובץ גיבוי</button>
+      <input type="file" id="imp" accept=".json" style="display:none" onchange="impJson(this)">
+    </div>
+    <div id="stats" style="margin-top:17px;color:var(--ink2);font-size:.92rem"></div>
+  </div>
+</section>
+
+</div>
+
+<div id="lb">
+  <button class="close" onclick="lbClose()">×</button>
+  <button class="nav prev" onclick="lbStep(-1)">‹</button>
+  <button class="nav next" onclick="lbStep(1)">›</button>
+  <div class="box">
+    <div class="pic"><img id="lb-i" alt=""></div>
+    <div class="side">
+      <div id="lb-yr" class="yr"></div>
+      <div id="lb-era" class="era-s"></div>
+      <div id="lb-cap" class="cp"></div>
+      <div id="lb-story" class="st"></div>
+      <div id="lb-num" class="nums"></div>
+    </div>
+  </div>
+</div>
+
+<footer>לזכרם של <b>מיה וליאו גולדנר</b> — בבה ודדה &nbsp;·&nbsp; אתר משפחתי, נבנה באהבה</footer>
+
+<script>
+/* ===== נתונים מוטמעים ===== */
+const ARCHIVE=[{"src": "images/001.jpg", "cap": "בלגרד, אחרי המלחמה — בערך 1947. סבא איסו וסבתא, ודני למטה. מאחור עומד החייל ששמר עליהם.", "era": "אירופה — לפני הכול", "year": "1947 בערך", "story": "התמונה מבלגרד"}, {"src": "images/002.jpg", "cap": "מיה וליאו הצעירים.", "era": "אירופה — לפני הכול", "year": "שנות ה-30–40 (משוער)"}, {"src": "images/003.jpg", "cap": "על הבמה — הצגה", "era": "אירופה — לפני הכול", "year": "שנות ה-30–40 (משוער)"}, {"src": "images/004.jpg", "cap": "במרפסת בחולון, אצל המשפחה, בזמן שאמא הייתה מאושפזת.", "era": "אירופה — לפני הכול", "year": "שנות ה-30–40 (משוער)", "story": "המרפסת בחולון"}, {"src": "images/005.jpg", "cap": "על האופניים", "era": "אירופה — לפני הכול", "year": "שנות ה-30–40 (משוער)"}, {"src": "images/006.jpg", "cap": "תל אביב של פעם. שיכון יוגוסלביה — שיכון סקטוריאלי שחולק בהגרלה.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "1949–1952", "story": "שיכון יוגוסלביה — הגרלה על חדר וחצי"}, {"src": "images/007.jpg", "cap": "אוניית המעפילים — חצי אונייה בני אדם, חצי אונייה פרות. למטה אמא ואילן; משמאל למעלה קורנליה ולאו גוטמן; וגם סבא איסו וסבתא.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)", "story": "אוניית המעפילים — חצי אנשים, חצי פרות"}, {"src": "images/008.jpg", "cap": "חופשה על החוף", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)"}, {"src": "images/009.jpg", "cap": "בין המדים", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)"}, {"src": "images/010.jpg", "cap": "השיכון בתחילתו — עוד אין סביבו כלום. זו הכניסה לבית.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)", "story": "שיכון יוגוסלביה — הגרלה על חדר וחצי"}, {"src": "images/011.jpg", "cap": "סבא איסו עם אילן על הידיים. תשע שנים ביניהם, ואותו מצח.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)"}, {"src": "images/012.jpg", "cap": "על האופניים בפרדס", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)"}, {"src": "images/013.jpg", "cap": "בית עץ התאנה — הבית שאילן בנה עם החברים על העץ. למטה ארגז החול שאבא ארגן.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)", "story": "בית עץ התאנה"}, {"src": "images/014.jpg", "cap": "עוזרים לאבא בעבודות גינה. ככה זה התחיל.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)", "story": "בית עץ התאנה"}, {"src": "images/015.jpg", "cap": "הבריכה על הדשא, בגינה של לאו גוטמן.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)", "story": "בית עץ התאנה"}, {"src": "images/016.jpg", "cap": "חתן וכלה", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "שנות ה-40–50 (משוער)"}, {"src": "images/017.jpg", "cap": "באבא ליד הפיאט, 1959.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "1959", "story": "פינת האוטו"}, {"src": "images/018.jpg", "cap": "פינת האוטו — פיאט 1100 'מילצ'נטו', 1959. המכונית הראשונה.", "era": "ראשית הדרך בארץ — שנות ה-40 וה-50", "year": "1959", "story": "פינת האוטו"}, {"src": "images/019.jpg", "cap": "פיג'ו 404 — התחנה הבאה בפינת האוטו.", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)", "story": "פינת האוטו"}, {"src": "images/020.jpg", "cap": "המשפחה בחצר", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/021.jpg", "cap": "הצעירים בגינה", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/022.jpg", "cap": "בסלון, עם התינוק", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/023.jpg", "cap": "אמא ותינוק", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/024.jpg", "cap": "בחוף", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/025.jpg", "cap": "בחוף", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/026.jpg", "cap": "בחוף עם אבא", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/027.jpg", "cap": "ארוחת חג", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/028.jpg", "cap": "בארוחה", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/029.jpg", "cap": "בסוכה", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/030.jpg", "cap": "תל עזזיאת, רמת הגולן", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/031.jpg", "cap": "מלון גני חמת", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/032.jpg", "cap": "1976", "era": "שנות ה-60 וה-70", "year": "1976"}, {"src": "images/033.jpg", "cap": "האקורדיון", "era": "שנות ה-60 וה-70", "year": "שנות ה-60–70 (משוער)"}, {"src": "images/034.jpg", "cap": "סובארו 86 — המכונית האחרונה של דדה, נהג בה עד גיל 92. מימין עגלת משא המזוודות שלו.", "era": "שנות ה-80 וה-90", "year": "1986", "story": "פינת האוטו"}, {"src": "images/035.jpg", "cap": "The Gang", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/036.jpg", "cap": "המשפחה", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/037.jpg", "cap": "ארוחה משפחתית", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/038.jpg", "cap": "סביב השולחן", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/039.jpg", "cap": "עם הנכדים", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/040.jpg", "cap": "האוסף — 1967, 1991, 1993, 1994", "era": "שנות ה-80 וה-90", "year": "1967–1994"}, {"src": "images/041.jpg", "cap": "תכנון סדר פסח, 1994–1995", "era": "שנות ה-80 וה-90", "year": "1994–1995"}, {"src": "images/042.jpg", "cap": "ביקור ילדי גן דליה במשתלה, 1995. עמדו מאחורי הגדר, ודדה הסביר על הגידולים — ובעיקר על תפוחי האדמה.", "era": "שנות ה-80 וה-90", "year": "1995", "story": "ילדי גן דליה מאחורי הגדר"}, {"src": "images/043.jpg", "cap": "הבית, 1995 — השביל, הפרחים, והכול טיפ טופ. מימין כובע נזיר.", "era": "שנות ה-80 וה-90", "year": "1995"}, {"src": "images/044.jpg", "cap": "Summer 1995 — טיול לאירופה", "era": "שנות ה-80 וה-90", "year": "קיץ 1995"}, {"src": "images/045.jpg", "cap": "DU PARC", "era": "שנות ה-80 וה-90", "year": "1995 בערך"}, {"src": "images/046.jpg", "cap": "Restaurant Baldegg", "era": "שנות ה-80 וה-90", "year": "1995 בערך"}, {"src": "images/047.jpg", "cap": "Baldegg", "era": "שנות ה-80 וה-90", "year": "1995 בערך"}, {"src": "images/048.jpg", "cap": "ביקורים משפחתיים אצל בבה ודדה באירופה", "era": "שנות ה-80 וה-90", "year": "1995 בערך"}, {"src": "images/049.jpg", "cap": "על האגם, שוויץ", "era": "שנות ה-80 וה-90", "year": "1995 בערך"}, {"src": "images/050.jpg", "cap": "שמורת יקום", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/051.jpg", "cap": "הלוטו וה\"תשתית\" המקורית", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/052.jpg", "cap": "בור הפיקוד — חדר העבודה", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/053.jpg", "cap": "הבית והגינה", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/054.jpg", "cap": "הרשתות שנפרסו מעל הערוגות.", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)", "story": "קטיף על פי ההנחיות"}, {"src": "images/055.jpg", "cap": "מלכת הלילה", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/056.jpg", "cap": "החנוכייה והסידור", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/057.jpg", "cap": "1997 — קטיף על פי ההנחיות: איך לאחוז, איך לסובב, איך למשוך. אסף, טל ועומר פרייס, ובאבא.", "era": "שנות ה-80 וה-90", "year": "1997", "story": "קטיף על פי ההנחיות"}, {"src": "images/058.jpg", "cap": "1997", "era": "שנות ה-80 וה-90", "year": "1997"}, {"src": "images/059.jpg", "cap": "שלושה דורות", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/060.jpg", "cap": "סביב השולחן", "era": "שנות ה-80 וה-90", "year": "שנות ה-80–90 (משוער)"}, {"src": "images/061.jpg", "cap": "ביקור בדלפת אצל מיכל ואיתן, מאי 2000", "era": "שנות ה-2000", "year": "מאי 2000"}, {"src": "images/062.jpg", "cap": "דצמבר 2001", "era": "שנות ה-2000", "year": "דצמבר 2001"}, {"src": "images/063.jpg", "cap": "שפיים, יולי 2001 — המסע השנתי לזבל. רק זבל פרות אמיתי.", "era": "שנות ה-2000", "year": "יולי 2001", "story": "המסע השנתי לשפיים"}, {"src": "images/064.jpg", "cap": "המריצה והערימה — עשרים ומשהו שקים בכל פעם. זה הקומפוסט. טל מקבלת הוראות מדויקות.", "era": "שנות ה-2000", "year": "2002", "story": "המסע השנתי לשפיים"}, {"src": "images/065.jpg", "cap": "בשביל", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/066.jpg", "cap": "ארוחה, 2002", "era": "שנות ה-2000", "year": "2002"}, {"src": "images/067.jpg", "cap": "במטבח", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/068.jpg", "cap": "עם המשפחה", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/069.jpg", "cap": "בבה ודדה בסלון, 2007", "era": "שנות ה-2000", "year": "2007"}, {"src": "images/070.jpg", "cap": "דדה והנכד, 2007", "era": "שנות ה-2000", "year": "2007"}, {"src": "images/071.jpg", "cap": "משחקים יחד, 2007", "era": "שנות ה-2000", "year": "2007"}, {"src": "images/072.jpg", "cap": "בני המשפחה", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/073.jpg", "cap": "בבה ודדה", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/074.jpg", "cap": "שלושה דורות", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/075.jpg", "cap": "דדה", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/076.jpg", "cap": "בפתח הבית", "era": "שנות ה-2000", "year": "שנות ה-2000 (משוער)"}, {"src": "images/077.jpg", "cap": "בבה בכורסה, 2010", "era": "שנות ה-2000", "year": "2010"}, {"src": "images/078.jpg", "cap": "בבית", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/079.jpg", "cap": "ליד השולחן", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/080.jpg", "cap": "עם הנכדים", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/081.jpg", "cap": "עם המשפחה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/082.jpg", "cap": "רגע של שמחה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/083.jpg", "cap": "עם הנין", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/084.jpg", "cap": "סלפי", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/085.jpg", "cap": "בחנות", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/086.jpg", "cap": "בארוחה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/087.jpg", "cap": "בארוחה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/088.jpg", "cap": "ערב בחוץ", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/089.jpg", "cap": "ארוחה משפחתית במסעדה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/090.jpg", "cap": "שיחה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/091.jpg", "cap": "בטיול", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/092.jpg", "cap": "בפארק", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/093.jpg", "cap": "הדגל", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/094.jpg", "cap": "גולת הכותרת", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/095.jpg", "cap": "החנוכייה", "era": "השנים האחרונות", "year": "2010–2015 (משוער)"}, {"src": "images/096.jpg", "cap": "2017", "era": "השנים האחרונות", "year": "2017"}, {"src": "images/097.jpg", "cap": "המריצה.", "era": "השנים האחרונות", "year": "2023", "story": "המסע השנתי לשפיים"}, {"src": "images/098.jpg", "cap": "ספסל ההנצחה, 2024", "era": "השנים האחרונות", "year": "2024"}, {"src": "images/099.jpg", "cap": "על הספסל, 2025", "era": "השנים האחרונות", "year": "2025"}];
+const STORIES=[{"era": "אירופה, ימי המלחמה", "title": "הרגל של אוממה", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["סבתא שלנו — אוממה — הייתה בלי רגל אחת, כתוצאה מאירועים שקרו בזמן המלחמה.", "באו גרמנים לחפש יהודים. היא שמעה את זה, וקפצה מהחלון כדי לברוח. בקפיצה היא שברה את הרגל. היא לא יכלה ללכת לבית חולים, כי שם כבר היו גרמנים. אז היא הלכה לאיזשהו בית פרטי, ושם רופא קטע לה את הרגל — וקטע לה אותה טוב מאוד.", "בשלב הרבה יותר מאוחר עשו לה פרוטזה. היא הלכה לנגר של העיר. ובשלב מאוחר עוד יותר היא טסה לארצות הברית ועברה שם ניתוח.", "הפרוטזה נשארה חלק מהבית. כל חצי שנה בערך היה רעש, ואילן היה משמן אותה. 'זה היה פרויקט רציני.'", "ואז היו כאבי הפנטום. היא הייתה צועקת 'איי, הרגל, הרגל' — והרגל לא הייתה שם. פעם אחת היא אמרה לאילן הילד 'מגרד לי באצבע'. הוא רץ לאמא שלו ואמר לה: סבתא אומרת שמגרד לה באצבע וברגל — איך זה יכול להיות? רק אחר כך הוא הבין מה זה."]}, {"era": "1942–1945", "title": "העדות של ליאו", "src": "ארכיון יד ושם, פריט 3727925 · תיק 2039 · חטיבה O.33", "body": ["ליאו כתב עדות. היא שמורה בארכיון יד ושם — עשרים וארבעה עמודים בגרמנית, בחטיבת העדויות, היומנים והזיכרונות.", "הדרך שהיא מתארת מתחילה ב-1942 בעבודת כפייה בבצ'סנטיוון שביוגוסלביה, ממשיכה למאסר בגאראן שבצ'כוסלובקיה ב-1943, ומשם אל תת-מחנות דכאו.", "בסתיו 1944 הוקם תת-המחנה טירקהיים — קאופרינג VI. העצירים היו יהודים הונגרים בעבודת כפייה. כרטיס האסיר של ליאו נושא את התאריך 7 בנובמבר 1944.", "בפברואר 1945 הוא הגיע לקאופרינג III, שלושה קילומטרים מלנדסברג. כארבעת אלפים עצירים היו שם — מיוון, מפולין, מליטא, מהונגריה ומצ'כוסלובקיה — תחת ניהול הס\"ס, בעבודה באתר בנייה של מפעל. חולים ומתים שולחו לקאופרינג IV, מחנה השמדה.", "העדות איננה רק טקסט. ליאו — שכבר אז היה אדריכל — צירף אליה תרשימים: שרטוט של המחנה וסביבתו, תוכניות של \"בלוק S\", מפה של צעדת המוות. ולצידם אישורי מאסר, תצלומים מ-1963, ורשימת ספרים על תקופת הרדיפות."]}, {"era": "30 באפריל 1945", "title": "יום ההולדת השני", "src": "מתוך עדותו של ליאו גולדנר, כפי שצוטטה בדף על שחרור אלאך", "body": ["בשלהי אפריל 1945 פינה הס\"ס את המחנה, וכארבעת אלפים אסירים הוצעדו בצעדת מוות, בלי מזון, אל מחנה אלאך — כשישה-עשר קילומטרים מדכאו.", "יום לפני השחרור, סיפר ליאו, האסירים כבר ידעו איכשהו שהוא קרוב. בלילה שבין 29 ל-30 באפריל הופגז האזור בארטילריה אמריקאית; היו נפגעים, אבל המטרה הייתה יחידת הגנה אווירית גרמנית שחנתה בסביבה. עם אור ראשון נעלמו גם אנשי הס\"ס של המחנה וגם החיילים הגרמנים.", "בסביבות תשע בבוקר נכנסו לשם חיילי דיוויזיית Rainbow ה-42. החייל הראשון שהגיע לשער הכריז לעבר האסירים שהם חופשיים. ליאו, שהיה אז בן 34, ביקש ממנו את שמו ואת כתובתו — ג'ורג' תומאן מאייקרון, אוהיו. הוא קרא לו מאז \"המשחרר הפרטי שלי\".", "מאותו יום ואילך ציין ליאו את ה-30 באפריל כיום ההולדת השני שלו.", "יש תצלום שצולם דקות ספורות אחרי הכניסה למחנה. ליאו נמצא בו, במרכז התמונה, במעיל."]}, {"era": "בלגרד, אחרי המלחמה", "title": "התמונה מבלגרד", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["התמונה צולמה בבלגרד, אחרי המלחמה — בערך 1947. בתמונה סבא איסו ואוממה — ההורים של מיה — ודני למטה.", "ומאחור, אם מסתכלים טוב, עומד חייל. הוא שמר עליהם. זה היה השומר ראש."]}, {"era": "העלייה לארץ", "title": "אוניית המעפילים — חצי אנשים, חצי פרות", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["הם עלו באוניית מעפילים, והביאו איתם פרות. חצי אונייה היו בני אדם, וחצי אונייה היו פרות. כשהגיעו לארץ, הפרות כבר לא היו — היו סטייקים.", "בתמונות שעל האונייה, כפי שתואר: 'למטה זה אמא שלי ואני'. לידם השכנים — אח של אני, ואיזי. בצד שמאל למעלה קורנליה ולאו גוטמן. וגם סבא איסו ואוממה."]}, {"era": "ראשית הדרך בארץ", "title": "המרפסת בחולון", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["התמונה הזאת נלקחה במרפסת בחולון.", "אמא — מיה — הגיעה ארצה עם מחלת עור קשה מאוד, כתוצאה מהשהייה באושוויץ, והייתה מאושפזת בבית חולים בירושלים. בזמן הזה קרובי משפחה לקחו אותי, והייתי אצל דודה שלי בחולון — אצל לוניקה ואמא שלה, סבתא מודה — עד שסבא שלי בא לבקר אותי."]}, {"era": "ראשית הדרך בארץ", "title": "שיכון יוגוסלביה — הגרלה על חדר וחצי", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["בבה, דדה ויודית — הבת הבכורה — נדדו בכל מיני מקומות — ברמת גן, ברמת חן — וגרו בדירות חדר, עם מטבח משותף ושירותים משותפים, במשך כמה שנים. עד שהגיעו לאזור הזה.", "האזור נקרא שיכון יוגוסלביה. אלה היו 'שיכונים סקטוריאליים': לפולנים היה את הצד שלהם, לעולי שנחאי את שלהם, וליוגוסלבים את שלהם. הבולגרים הלכו ליפו ולתל ברוך. על השטחים כאן עשו הגרלה.", "והבית הזה התחיל מגודל של חדר וחצי. חדר וחצי — למשפחה.", "בתמונה של השיכון בתחילתו רואים שאין סביבו עדיין כלום. הכניסה לבית הייתה מין מרפסת קטנה, ארבע על ארבע בערך."]}, {"era": "הבית והגינה", "title": "בית עץ התאנה", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["בחצר היה עץ תאנה. עליו אילן בנה, עם כל החברים, בית שלם על העץ.", "למטה בתמונה אפשר לראות מרובע מעץ — ארגז החול שאבא ארגן, כמו בגני ילדים. ובגינה היה גם עץ גויאבות.", "על הדשא בחוץ הייתה בריכה. אחת התמונות צולמה בבריכה שבגינה של לאו גוטמן — סבא וסבתא של יובל וענת. 'יובל היה פה תמיד.'"]}, {"era": "מסורות המשפחה", "title": "פינת האוטו", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["בארוחות שישי, כל שבוע, הייתה פינה קבועה: פינת האוטו. היינו שואלים את דדה — נו, מתי אתה מחליף את האוטו? לאיזה אוטו אתה מחליף? מה כדאי?", "הראשון היה פיאט 1100 — 'מילצ'נטו' — משנת 1959. באותן שנים היו בכל השכונה אולי עשר מכוניות. אחריו בא הפיג'ו 404.", "האחרון היה הסובארו. דדה נהג בו עד גיל 92. פעם, בדרך לערוותיים, עצרו לשאול בדואים איפה יש מים — הם הסתכלו על האוטו, אמרו 'אה, סובארו, אוקיי, סעו', והאוטו עשה את הדרך עד המים. היה גם מאוורר קטן בפנים, בחום האיום. ודדה הגיע איתו גם למכתש רמון.", "ומימין בתמונה — עגלת משא המזוודות של דדה. אילן משתמש בה עד היום, וסוחב עליה דברים שאף עגלה אחרת לא הייתה מרימה."]}, {"era": "מסורות המשפחה", "title": "המסע השנתי לשפיים", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["כל שנה היה טקס. דדה היה קורא, וצריך היה להתייצב ב-6:30 בבוקר — לא דקה אחרי. נוסעים לשפיים.", "היינו מעמיסים על הג'יפ זבל לעצים. זבל אמיתי של פרות, לא זבל של משתלה. על זה הוא לא היה מוכן להתפשר.", "למה דווקא שפיים? כי דדה, כאדריכל, עבד עם קיבוץ שפיים ותכנן שם. הוא קשר שם קשרים וסידר שיקבל את הזבל האורגינלי. פרוטקציה.", "הוא היה מכין מראש שקים מקופלים יפה ומסודרים, וחבלי קשירה, והעט שלו. אילן וטל היו מעמיסים, הוא היה קושר. ואז, עם המריצה, עשרים ומשהו שקים בכל פעם — וככה נוצרה הערימה. זה היה הקומפוסט.", "דדה קיבל מדליה כאחד ממאה הקומפוסטאים הראשונים בתל אביב. עמותת 'עץ בעיר', שמקדמת חיים ירוקים בעיר, הגיעה לכאן וראיינה אותו."]}, {"era": "מסורות המשפחה", "title": "קטיף על פי ההנחיות", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["כל השנה דדה היה אוסף את המעטפות של המכתבים שקיבל. בזמן המתאים היה יוצא לגינה ועם מהדק הסיכות שלו עוטף בהן את הפירות על העצים. בשלב מאוחר יותר זימן את בועז ואת אילן לפרוס רשתות מלמעלה — ואחר כך גם את הנכדים.", "ואי אפשר היה פשוט לבוא ולקטוף מהעץ. היו הנחיות מדויקות: איך לאחוז בפרי, איך לסובב, איך למשוך.", "בתמונה מ-1997 קוטפים אסף וטל, ועומר פרייס — חבר של טל. ובאבא, כמובן."]}, {"era": "המשתלה", "title": "ילדי גן דליה מאחורי הגדר", "src": "מתוך שיחה משפחתית — אילן ויודית גולדנר ובני המשפחה", "body": ["גן דליה ברחוב הגולן — הגן שגם ניני, הנינה, גדלה בו שנים אחר כך. הגננת, האישה שמצד שמאל בתמונה, הייתה בת כיתה של אילן.", "הם היו באים לראות את המשתלה של דדה, עומדים מאחורי הגדר, והוא היה יוצא ומסביר להם על הגידולים. כל פעם היא הייתה מביאה גן אחר. תפוחי האדמה היו הקטע הגדול — איך מגלים אותם מתוך האדמה.", "וכמה שנים אחר כך היה סיפור מפתיע: אחת מבנות המשפחה עשתה תיאטרון בובות, והתקשרה אליה גננת להזמין הופעה. 'אני ברחוב הגולן,' אמרה. 'אה, ליד גולן 17, אני יודעת איפה זה.' הגננת שאלה איך היא יודעת — ואז התברר שזה אותו גן, ושהם עדיין באים כל שנה לעמוד שם ולשמוע איך מגדלים תפוחי אדמה."]}];
+const MEMOS=[{"t": "סבא איסו גר כאן עם אוממה עד שנפטר, בדירה הזאת.", "by": "אילן ויודית"}, {"t": "סבא איסו ואוממה, ההורים של אמא, גרו בבית ממש מעבר לקיר. קרוב.", "by": "אילן ויודית"}, {"t": "תראו את סבא איסו עם אילן הקטן על הידיים. תשע שנים ביניהם — ואותו מצח בדיוק. אחד לאחד.", "by": "מהשיחה המשפחתית"}, {"t": "עגלת המזוודות של דדה עדיין בשימוש. היום כולם קונים עגלת משא ב-100 שקל, ואילן ממשיך לסחוב עליה טונות. הוא יכול להרים ארון בדבר הזה.", "by": "מהשיחה המשפחתית"}, {"t": "השביל, הפרחים, הסדר — הכול תמיד היה טיפ טופ. ובצד ימין כובע נזיר.", "by": "מהשיחה המשפחתית"}, {"t": "המשתלה הייתה משום מה אטרקציה. היינו מביאים אליה חברים.", "by": "אילן"}, {"t": "הזבל של שפיים — עד היום מריחים אותו כשנזכרים.", "by": "מהשיחה המשפחתית"}];
+const TRIVIA=[{"cat": "מי הם", "q": "באיזו שנה נולדו בבה ודדה?", "a": "דדה — 1911. בבה — 1921.", "s": "דדה — 1911. בבה — 1921.", "o": ["דדה — 1905. בבה — 1915.", "דדה — 1918. בבה — 1924.", "דדה — 1911. בבה — 1911."]}, {"cat": "מי הם", "q": "מה המזל האסטרולוגי של כל אחד מהם?", "a": "דדה — מאזניים. בבה — עקרב.", "s": "דדה — מאזניים. בבה — עקרב.", "o": ["דדה — עקרב. בבה — מאזניים.", "דדה — טלה. בבה — דגים.", "שניהם מאזניים."]}, {"cat": "שורשים", "q": "באיזו עיר נולד כל אחד מהם?", "a": "דדה נולד בבאיה. בבה נולדה בסרייבו.", "s": "דדה נולד בבאיה. מיה נולדה בסרייבו.", "o": ["דדה נולד בבלגרד. מיה נולדה בזאגרב.", "דדה נולד בסרייבו. מיה נולדה בבאיה.", "דדה נולד בבודפשט. מיה נולדה בסקופיה."]}, {"cat": "שורשים", "q": "איך קראו לאחים ולאחיות של דדה?", "a": "דודו וקורנליה — ויש עוד אחד או אחת שהשם שלהם חסר.", "s": "דודו וקורנליה.", "o": ["איסו ולוניקה.", "קרלו ומודה.", "דני ורעיה."], "note": "אם מישהו במשפחה יודע את השם החסר — זה המקום להשלים אותו."}, {"cat": "שורשים", "q": "איזה מפעל היה להורים של דדה?", "a": "מפעל מקררים.", "s": "מפעל מקררים.", "o": ["מפעל סכיני גילוח.", "מפעל טקסטיל.", "מפעל רהיטים."]}, {"cat": "שורשים", "q": "במה עסקו ההורים של בבה?", "a": "ישראל — איסו — היה פקיד בחברת Shell.", "s": "איסו היה פקיד בחברת Shell.", "o": ["איסו היה רופא.", "איסו היה סוחר יהלומים.", "איסו היה נגר העיר."]}, {"cat": "הקריירה", "q": "איפה דדה למד אדריכלות?", "a": "בברלין. הוא סיים את בית הספר הטכני הגבוה של ברלין בתואר מהנדס-אדריכל, בשנת 1934.", "s": "בברלין.", "o": ["בווינה.", "בבודפשט.", "בטכניון בחיפה."]}, {"cat": "הקריירה", "q": "איך קראו לשותף של דדה במשרד?", "a": "האדריכל אברהם אקסלרוד. הם עבדו יחד מ-1951 ועד 1987 — שלושים ושש שנה.", "s": "אברהם אקסלרוד.", "o": ["קרלו שפיצר.", "רפי אברהם.", "בני הלוי."]}, {"cat": "הקריירה", "q": "באיזה גיל דדה יצא לפנסיה?", "a": "בגיל 70.", "s": "בגיל 70.", "o": ["בגיל 65.", "בגיל 75.", "בגיל 80."]}, {"cat": "הקריירה", "q": "עד איזה גיל דדה המשיך ללמוד באוניברסיטה?", "a": "עד גיל 80.", "s": "עד גיל 80.", "o": ["עד גיל 70.", "עד גיל 75.", "עד גיל 90."]}, {"cat": "הרגלים", "q": "עד איזה גיל דדה נהג?", "a": "עד גיל 80 בערך.", "s": "עד גיל 80 בערך.", "o": ["עד גיל 65.", "עד גיל 70.", "עד גיל 95."], "note": "בשיחה המשפחתית על הסובארו נאמר שהוא נהג עד גיל 92. שתי הגרסאות רשומות כאן — מישהו צריך להכריע."}, {"cat": "מי הם", "q": "כמה שפות הם דיברו?", "a": "שש עד שבע: עברית, אנגלית, סרבית, הונגרית, צרפתית, גרמנית ולטינית.", "s": "שש עד שבע.", "o": ["שתיים.", "שלוש.", "עשר."]}, {"cat": "מי הם", "q": "איזה ספורט בבה הכי אהבה כשהייתה צעירה?", "a": "סקי.", "s": "סקי.", "o": ["שחייה.", "טניס.", "רכיבה על סוסים."]}, {"cat": "מי הם", "q": "אם בבה לא הייתה עקרת בית — מה היא הייתה לדעתכם?", "a": "מנכ\"לית. או אשת מודיעין.", "s": "מנכ\"לית, או אשת מודיעין.", "o": ["מורה.", "אדריכלית, כמו דדה.", "שחקנית תיאטרון."]}, {"cat": "טעמים", "q": "מה היה המאכל האהוב על כל אחד מהם?", "a": "דדה — לחם. בבה — עוגה.", "s": "דדה — לחם. בבה — עוגה.", "o": ["דדה — עוגה. בבה — לחם.", "דדה — דגים. בבה — שוקולד.", "שניהם — גולאש."]}, {"cat": "טעמים", "q": "ומה המשקה?", "a": "דדה — שליבוביץ. בבה — בירה.", "s": "דדה — שליבוביץ. בבה — בירה.", "o": ["דדה — בירה. בבה — שליבוביץ.", "דדה — יין אדום. בבה — תה.", "שניהם — קפה שחור."]}, {"cat": "החיים בתל אביב", "q": "באיזו מסעדה בתל אביב הם אהבו לשבת?", "a": "מון ז'ורדן.", "s": "מון ז'ורדן.", "o": ["קפה כסית.", "מסעדת אלכסנדר.", "המסעדה של מלון רמת-אביב."]}, {"cat": "החיים בתל אביב", "q": "מה דדה הכי אהב לעשות שקשור לעיריית תל אביב?", "a": "לכתוב מכתבי תלונה ובקשות לביטול דוחות.", "s": "לכתוב מכתבי תלונה ובקשות לביטול דוחות.", "o": ["להתנדב בוועדת בניין ערים.", "להגיש תוכניות לגינות ציבוריות.", "להשתתף בישיבות המועצה."]}, {"cat": "הבית", "q": "מה תמיד היה בתוך הקערה הצהובה בצורת סרט מתנה?", "a": "שוקולדים קטנים.", "s": "שוקולדים קטנים.", "o": ["סוכריות מנטה.", "אגוזים ושקדים.", "כפתורים וחוטים."]}, {"cat": "הבית", "q": "מה הם אהבו להביא לנכדים במתנה?", "a": "פיג'מה או שעון.", "s": "פיג'מה או שעון.", "o": ["ספרים.", "כסף במעטפה.", "ממתקים."]}, {"cat": "הרגלים", "q": "איך דדה אהב לצלם את המשפחה?", "a": "כשכל אחד תופס מרחק מהשני — בלי נגיעות.", "s": "כשכל אחד תופס מרחק מהשני — בלי נגיעות.", "o": ["כשכולם צמודים ומחובקים.", "תמיד בשחור-לבן.", "רק בגינה, ליד עץ התאנה."]}, {"cat": "הרגלים", "q": "אפשר היה לשבת לשולחן בספונטניות?", "a": "לא.", "s": "לא.", "o": ["כן, תמיד.", "רק בארוחות שישי.", "רק הנכדים."]}, {"cat": "חוכמת חיים", "q": "איזה מסר הם היו נותנים לחיים מאושרים?", "a": "להיות עם המשפחה, ולטייל.", "s": "להיות עם המשפחה, ולטייל.", "o": ["לעבוד קשה ולחסוך.", "ללמוד משהו חדש כל החיים.", "לשמור על הבריאות."], "note": "בבה הוסיפה שהחיים בעתיד יהיו שונים מאוד ממה שהם עכשיו — אז אין לדעת."}];
+const CV={"stats": [{"n": "1934", "t": "תואר מהנדס-אדריכל, ברלין"}, {"n": "36", "t": "שנות שותפות עם אקסלרוד"}, {"n": "30", "t": "שנות תכנון בנתב\"ג"}, {"n": "100", "t": "תחנות דלק לחברת פז"}, {"n": "33", "t": "שנות תכנון בבית-מרגוע שפיים"}, {"n": "4", "t": "יבשות שבהן תכנן"}], "path": [{"y": "1934", "t": "סיום הלימודים בברלין", "d": "בוגר בית הספר הטכני הגבוה של ברלין, גרמניה, בתואר מהנדס-אדריכל."}, {"y": "1935–1941", "t": "משרד פרטי ביוגוסלביה", "d": "בשותפות עם גיסו, האדריכל קרלו שפיצר."}, {"y": "1941–1948", "t": "המלחמה", "d": "שוחרר כניצול ממחנה דכאו בגרמניה, ובשנת 1948 עלה לישראל."}, {"y": "1948–1950", "t": "במשרדו של האדריכל רפי אברהם"}, {"y": "1950–1951", "t": "משרד ת.כ.ן — תכנון שיכונים"}, {"y": "1951–1987", "t": "משרד עצמאי עם האדריכל אברהם אקסלרוד", "d": "שלושים ושש שנות עבודה משותפת, שבהן נבנו רוב הפרויקטים שברשימה."}, {"y": "1981", "t": "יציאה לפנסיה בגיל 70", "d": "אבל המשרד המשיך לעבוד עוד שנים, והוא המשיך ללמוד באוניברסיטה עד גיל 80."}], "projects": [{"y": "1951", "t": "משרד ת.כ.ן — תכנון שיכונים", "c": "מגורים ושיכון"}, {"y": "1951–55", "t": "שכונת אפרידר, אשקלון", "p": "כולל המרכז האזרחי", "c": "מגורים ושיכון"}, {"y": "1950", "t": "בתי חרושת \"יגלום טקסטיל\"", "p": "תל אביב", "c": "תעשייה"}, {"y": "1952", "t": "מלון \"רמת-אביב\"", "p": "תל אביב", "c": "תיירות ופנאי"}, {"y": "1952", "t": "מפעל \"מפי\"", "p": "נתניה", "c": "תעשייה"}, {"y": "1952–85", "t": "בית-מרגוע שפיים", "p": "תכנון מתמשך לאורך 33 שנה", "c": "תיירות ופנאי"}, {"y": "1953–54", "t": "מלון \"רקפת\"", "p": "צפת", "c": "תיירות ופנאי"}, {"y": "1953–54", "t": "הוסטל \"דרום אפריקאי\"", "p": "גבעתיים", "c": "מגורים ושיכון"}, {"y": "1955", "t": "קאנטרי קלאב", "p": "סביון", "c": "תיירות ופנאי"}, {"y": "1957–87", "t": "נמל התעופה בן-גוריון", "p": "מסוף הנוסעים, משרדי אל-על, מגדל הפיקוח, סככת מטוסים ומפעל הקייטרינג — תכנון מתמשך", "c": "תעופה"}, {"y": "1960–70", "t": "100 תחנות דלק לחברת \"פז\"", "c": "תחנות דלק"}, {"y": "1960–70", "t": "תחנות דלק לחברת \"סונול\"", "c": "תחנות דלק"}, {"y": "1960–70", "t": "משרדי \"אל-על\" בחיפה ובאיסטנבול", "c": "תעופה"}, {"y": "1960–84", "t": "מעבדות במכון ויצמן", "p": "רחובות", "c": "מוסדות ומחקר"}, {"y": "1970", "t": "מפעל \"פרמשרפ\"", "p": "נצרת", "c": "תעשייה"}, {"y": "1972", "t": "מרכז נוער", "p": "יבנה", "c": "מוסדות ומחקר"}, {"y": "1978", "t": "כפר נופש בטנזניה", "c": "בחו\"ל"}, {"y": "1980", "t": "מפעלי \"ב.ג.\"", "p": "רחובות", "c": "תעשייה"}, {"y": "1980", "t": "בונגלו הוטל, אוגנדה", "c": "בחו\"ל"}, {"y": "1982–83", "t": "מפעלי \"אלקטרה\"", "p": "ראשון לציון", "c": "תעשייה"}, {"y": "1984–87", "t": "בניין לניסויי טיסה בתעשייה האווירית", "c": "תעופה"}, {"y": "1985", "t": "מפעלי \"אסקור\"", "p": "בני ברק", "c": "תעשייה"}], "note": "הרשימה אינה כוללת בתים משותפים ברחבי הארץ, וּוילות בסביון, בכפר-שמריהו ובתל אביב. מתוך קורות החיים שכתב ליאו גולדנר."};
+const RECIPES=[{"t": "קומפוט תפוחים", "by": "דדה", "date": "נכתב 12.3.1995", "ing": ["7 תפוחים", "2½ כוסות סוכר", "לימון אחד"], "steps": ["לקלף את התפוחים ולחתוך אותם לשמיניות.", "להכניס לסיר גדול ולהוסיף את מיץ הלימון.", "להוסיף את הסוכר ולערבב היטב.", "להוסיף מים קרים עד שהם מכסים את התפוחים.", "לבשל כ-15–20 דקות על אש בינונית, ולטעום.", "לבדוק אם צריך עוד סוכר, ואם הפרי התרכך מספיק.", "להשאיר את הסיר להתקרר, ולהכניס למקרר ליום."], "note": "בכותרת הדף כתוב \"מתכונים של דדה\". זה הדף הראשון מתוך סדרה.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r01.jpg"}, {"t": "עוגת אורז", "by": "בבה", "date": "נכתב 29.11.2011, באנגלית", "ing": ["150 גרם אורז", "¾ ליטר חלב", "100 גרם סוכר", "3 חלמונים", "גרידת לימון", "80 גרם חמאה", "חופן צימוקים", "פירורי לחם וחמאה לתבנית"], "steps": ["לבשל את האורז בחלב עד שהוא רך, ולתת לו להתקרר.", "להשרות את הצימוקים במים כשעה, עד שהם מתרככים.", "לערבב את החלמונים עם הסוכר והחמאה.", "כשהאורז קר — לערבב את הכול יחד.", "להקציף את החלבונים בנפרד עד שהם אווריריים, ולקפל פנימה.", "לשמן את התבנית בחמאה ולפזר בה פירורי לחם.", "לאפות כשעה, עד שהעוגה זהובה-חומה."], "note": "המתכון נכתב באנגלית, על נייר מכתבים של חברת Ackermann הגרמנית.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r02.jpg"}, {"t": "סלט תפוחי אדמה", "by": "בבה", "ing": ["3 תפוחי אדמה", "ביצים קשות", "מלפפון חמוץ", "בצל (לא חובה)", "מלח", "שמן"], "steps": [], "note": "בכותרת רשום \"(דדה)\", ובהערות המיוחדות בתחתית הדף כתוב \"מתכון של בבה\" — כנראה המתכון שלה, שהוא אהב.\nאופן ההכנה לא נרשם בכרטיס.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r03.jpg"}, {"t": "סלט אורז ותירס", "by": "בבה", "ing": ["כוס אורז מבושל", "2 כוסות תירס", "מלפפון חמוץ", "גזר (לא חובה)", "מיונז", "שמיר", "מלח"], "steps": ["לבשל את האורז ולתת לו להתקרר.", "לערבב את האורז עם התירס, הגזר והמלפפון החמוץ.", "להוסיף מיונז, שמיר ומלח, ולערבב."], "note": "גם כאן רשום בהערות \"מתכון של בבה\".\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r04.jpg"}, {"t": "סלט קישואים", "by": "דדה", "ing": ["4–5 קישואים", "מלח", "שמן", "שמיר", "חומץ", "סוכר", "פלפל לבן"], "steps": ["לפרוס את הקישואים ולהוציא את הגרעינים.", "לפזר עליהם מלח ולהמתין, ואז לסחוט ולהוציא את המים.", "להעביר לקערה ולהוסיף כמה כפות שמן ושמיר.", "להכין רוטב לפי כמות הקישואים: על 4–5 קישואים — כ-4 כפות חומץ, ¾ כוס סוכר ושתי כפיות שמן.", "לערבב את הרוטב היטב ולצקת על הקישואים.", "לקרר לפני ההגשה."], "note": "המתכון נחתם במילה \"בתאבון!\".\nהכמויות ברוטב הן הקריאה הסבירה ביותר של כתב היד — כדאי להצליב מול הסריקה לפני שמכינים.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r05.jpg"}, {"t": "תבשיל כרוב חמוץ", "by": "בבה", "ing": ["בשר טחון", "כרוב חמוץ", "שמנת חמוצה (crème fraîche)", "שום", "בצל", "פפריקה"], "steps": ["לטגן את הבשר הטחון עם בצל ושום.", "להוסיף את הכרוב החמוץ והפפריקה.", "לערבב פנימה שמנת חמוצה.", "לתת לתבשיל לרתוח."], "note": "פענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r06.jpg"}, {"t": "כרוב כבוש עם בשר טחון ואורז", "by": "בבה", "date": "נכתב 12.3.1995", "ing": ["½ ק\"ג בשר טחון", "כחצי כוס אורז לא מבושל", "עלי כרוב כבוש", "קטשופ", "פפריקה, מלח, פלפל שחור", "בצל", "שמן"], "steps": ["לרפד את תחתית הסיר ואת הדפנות בעלי כרוב כבוש.", "לערבב את הבשר הטחון עם האורז הלא מבושל, פפריקה, מלח, פלפל ובצל.", "למלא את עלי הכרוב בתערובת ולסדר אותם בסיר בשכבות.", "להוסיף מים וקטשופ, ולבשל על אש נמוכה."], "note": "זהו דף 4 מתוך סדרת דפים בכתב ידה. אופן ההכנה כתוב בצפיפות ובקיצורים, וחלק מהשלבים והכמויות לא ניתנים לקריאה ודאית — מה שכתוב כאן הוא שחזור של המהלך הכללי.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r07.jpg"}, {"t": "ריבות מפרי הדר — עמוד 1", "by": "בבה", "ing": [], "steps": ["לחתוך את הפרי לגזרים.", "להרתיח ולסנן, ולחזור על כך כמה פעמים — \"מחליפים מים עד שהיא לא מרה\".", "להוסיף סוכר ומים ולבשל עד הסמכה.", "לצנן ולהעביר לצנצנות, ולהניח כ-24 שעות."], "note": "מסמך בן שלושה עמודים בכתב ידה, הכתוב בצפיפות ובמספור רומי, עם יחסי כמויות כמו 6 / 8 / 12 ו-0.7 ק\"ג סוכר לכל ק\"ג פרי. השחזור כאן הוא של המהלך בלבד — הטקסט המלא נמצא בשלוש הסריקות, והוא שווה קריאה במקור.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r08.jpg"}, {"t": "ריבות מפרי הדר — עמוד 2", "by": "בבה", "ing": [], "steps": [], "note": "המשך המסמך בן שלושת העמודים.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r09.jpg"}, {"t": "ריבות מפרי הדר — עמוד 3", "by": "בבה", "ing": [], "steps": [], "note": "סיום המסמך בן שלושת העמודים.\nפענוח מכתב היד — ייתכנו אי-דיוקים. הסריקה המקורית לצד הטקסט, וכדאי להצליב.", "img": "recipes/r10.jpg"}];
+const TIMELINE=[{"y": "5 באוקטובר 1911", "t": "ליאו (דדה) נולד בבאיה, הונגריה", "k": "life", "d": "התאריך מתוך רישומי ארכיון יד ושם."}, {"y": "1921", "t": "מיה (בבה) נולדה בסרייבו", "k": "life"}, {"y": "1934", "t": "סיום לימודי אדריכלות בברלין", "k": "work", "d": "בוגר בית הספר הטכני הגבוה של ברלין, בתואר מהנדס-אדריכל."}, {"y": "1935–1941", "t": "משרד פרטי ביוגוסלביה", "k": "work", "d": "בשותפות עם גיסו, האדריכל קרלו שפיצר."}, {"y": "1942", "t": "עבודת כפייה בבצ'סנטיוון, יוגוסלביה", "k": "life", "d": "לפי האישור שצורף לעדות שליאו הפקיד ביד ושם."}, {"y": "1943", "t": "מאסר בגאראן, צ'כוסלובקיה", "k": "life"}, {"y": "נובמבר 1944", "t": "טירקהיים — קאופרינג VI", "k": "life", "d": "תת-מחנה של דכאו שהוקם בסתיו 1944. כרטיס האסיר של ליאו נושא את התאריך 7 בנובמבר 1944."}, {"y": "פברואר 1945", "t": "קאופרינג III", "k": "life", "d": "כארבעת אלפים עצירים מיוון, פולין, ליטא, הונגריה וצ'כוסלובקיה. עבודה באתר בנייה של מפעל. חולים ומתים שולחו לקאופרינג IV, מחנה השמדה."}, {"y": "סוף אפריל 1945", "t": "צעדת המוות לאלאך", "k": "life", "d": "הס\"ס פינה את המחנה. כארבעת אלפים אסירים הוצעדו בלי מזון אל מחנה אלאך."}, {"y": "30 באפריל 1945", "t": "השחרור", "k": "life", "d": "דיוויזיית Rainbow ה-42 נכנסה למחנה בסביבות תשע בבוקר. ליאו, בן 34, ביקש מהחייל הראשון את שמו — ג'ורג' תומאן מאייקרון, אוהיו. מאז ציין את התאריך הזה כיום ההולדת השני שלו."}, {"y": "1945", "t": "מיה שרדה את אושוויץ", "k": "life", "d": "ואוממה, אמה, קפצה מחלון בבריחה מחיפוש של הגרמנים, שברה את רגלה ואיבדה אותה."}, {"y": "1947 בערך", "t": "התמונה מבלגרד", "k": "life", "d": "סבא איסו ואוממה, ודני. מאחור עומד החייל ששמר עליהם."}, {"y": "1948", "t": "העלייה לישראל", "k": "life", "d": "באוניית מעפילים — חצי אונייה בני אדם, חצי אונייה פרות. מיה הגיעה עם מחלת עור קשה ואושפזה בירושלים."}, {"y": "1948–1950", "t": "עבודה במשרדו של האדריכל רפי אברהם", "k": "work"}, {"y": "1949–1952", "t": "שיכון יוגוסלביה", "k": "home", "d": "אחרי שנים של נדודים בין דירות חדר ברמת גן וברמת חן — הגרלה על שטח בשיכון הסקטוריאלי. הבית התחיל מחדר וחצי."}, {"y": "1950–1951", "t": "משרד ת.כ.ן — תכנון שיכונים", "k": "work"}, {"y": "1951", "t": "פתיחת משרד עצמאי עם אברהם אקסלרוד", "k": "work", "d": "שותפות שתימשך שלושים ושש שנה."}, {"y": "1951–1955", "t": "שכונת אפרידר, אשקלון", "k": "work", "d": "כולל המרכז האזרחי."}, {"y": "1952", "t": "מלון רמת-אביב, תל אביב", "k": "work"}, {"y": "1952–1985", "t": "בית-מרגוע שפיים", "k": "work", "d": "תכנון מתמשך לאורך 33 שנה — והקשר שממנו יגיע, שנים אחר כך, זבל הפרות לגינה."}, {"y": "1957–1987", "t": "נמל התעופה בן-גוריון", "k": "work", "d": "מסוף הנוסעים, משרדי אל-על, מגדל הפיקוח, סככת מטוסים ומפעל הקייטרינג."}, {"y": "1959", "t": "המכונית הראשונה — פיאט 1100", "k": "home", "d": "בכל השכונה היו אז אולי עשר מכוניות. כאן נולדה \"פינת האוטו\" של ארוחות שישי."}, {"y": "1960–1970", "t": "100 תחנות דלק לחברת פז", "k": "work", "d": "ועוד תחנות לסונול."}, {"y": "1960–1984", "t": "מעבדות במכון ויצמן, רחובות", "k": "work"}, {"y": "שנות ה-60", "t": "פיג'ו 404", "k": "home", "d": "התחנה הבאה בפינת האוטו."}, {"y": "1976", "t": "בחוף", "k": "life"}, {"y": "1978–1980", "t": "כפר נופש בטנזניה, ובונגלו הוטל באוגנדה", "k": "work"}, {"y": "1981", "t": "יציאה לפנסיה בגיל 70", "k": "work", "d": "אבל הלימודים באוניברסיטה נמשכו עד גיל 80."}, {"y": "1984–1987", "t": "בניין לניסויי טיסה בתעשייה האווירית", "k": "work", "d": "הפרויקט האחרון לפני סגירת המשרד."}, {"y": "1986", "t": "הסובארו", "k": "home", "d": "המכונית האחרונה של דדה. ובצד ימין — עגלת משא המזוודות שאילן משתמש בה עד היום."}, {"y": "1994–1995", "t": "תכנון סדר פסח", "k": "home", "d": "שרטוטי הושבה, כמו תוכנית בניין."}, {"y": "1995", "t": "ילדי גן דליה מאחורי הגדר", "k": "home", "d": "כל שנה גן אחר הגיע לעמוד מול המשתלה, ודדה הסביר להם על הגידולים — בעיקר על תפוחי האדמה."}, {"y": "קיץ 1995", "t": "הטיול לאירופה", "k": "life", "d": "באדן, פראג, קרלובי וארי, שפיץ."}, {"y": "1997", "t": "קטיף על פי ההנחיות", "k": "home", "d": "איך לאחוז בפרי, איך לסובב, איך למשוך."}, {"y": "מאי 2000", "t": "ביקור בדלפת אצל מיכל ואיתן", "k": "life"}, {"y": "יולי 2001", "t": "המסע השנתי לשפיים", "k": "home", "d": "התייצבות ב-6:30 בבוקר, זבל פרות אמיתי בלבד."}, {"y": "שנות ה-2000", "t": "הקומפוסט", "k": "home", "d": "דדה קיבל מדליה כאחד ממאה הקומפוסטאים הראשונים בתל אביב. עמותת \"עץ בעיר\" הגיעה לראיין אותו."}, {"y": "2013", "t": "דדה נפטר", "k": "life", "d": "בגיל 102."}, {"y": "2015", "t": "בבה נפטרה", "k": "life", "d": "בגיל 94."}, {"y": "2024", "t": "ספסל ההנצחה", "k": "life"}, {"y": "2025", "t": "על הספסל", "k": "life", "d": "והשנה שבה המשפחה ישבה לעבור על התמונות ולספר."}];
+const PLACES={"il": [{"n": "תל אביב", "s": "הבית", "tg": "g", "ll": [32.08, 34.78], "e": ["שיכון יוגוסלביה — השיכון הסקטוריאלי שחולק בהגרלה, והבית שהתחיל מחדר וחצי", "רחוב הגולן — גן דליה, שממנו הגיעו הילדים לראות את המשתלה", "מסעדת מון ז'ורדן, המקום האהוב עליהם", "מכתבי התלונה ובקשות ביטול הדוחות לעיריית תל אביב", "בתי חרושת \"יגלום טקסטיל\" (1950) ומלון רמת-אביב (1952)"]}, {"n": "רמת גן ורמת חן", "ll": [32.08, 34.82], "e": ["דירות החדר עם מטבח ושירותים משותפים, בשנים שלפני השיכון"]}, {"n": "חולון", "ll": [32.01, 34.78], "e": ["המרפסת שבה הייתה יודית אצל המשפחה, כשמיה אושפזה בירושלים"]}, {"n": "ירושלים", "ll": [31.78, 35.22], "e": ["בית החולים שבו אושפזה מיה עם הגיעה ארצה"]}, {"n": "שפיים", "s": "עבודה ובית", "tg": "s", "ll": [32.34, 34.83], "e": ["בית-מרגוע שפיים — תכנון מתמשך, 1952–1985", "ומשם, שנים אחר כך, זבל הפרות למסע השנתי של הגינה"]}, {"n": "נמל התעופה בן-גוריון", "s": "עבודה", "tg": "s", "ll": [32.0, 34.88], "e": ["מסוף הנוסעים, משרדי אל-על, מגדל הפיקוח, סככת מטוסים ומפעל הקייטרינג, 1957–1987", "בניין לניסויי טיסה בתעשייה האווירית, 1984–1987"]}, {"n": "אשקלון", "s": "עבודה", "tg": "s", "ll": [31.67, 34.57], "e": ["שכונת אפרידר, כולל המרכז האזרחי, 1951–1955"]}, {"n": "נתניה", "ll": [32.33, 34.86], "e": ["מפעל \"מפי\", 1952", "כפר המכבייה — השלט שבתמונת הפיאט מ-1959"]}, {"n": "צפת", "s": "עבודה", "tg": "s", "ll": [32.96, 35.5], "e": ["מלון \"רקפת\", 1953–1954"]}, {"n": "גבעתיים", "s": "עבודה", "tg": "s", "ll": [32.07, 34.81], "e": ["הוסטל \"דרום אפריקאי\""]}, {"n": "סביון", "s": "עבודה", "tg": "s", "ll": [32.05, 34.88], "e": ["קאנטרי קלאב, 1955", "ווילות פרטיות"]}, {"n": "רחובות", "s": "עבודה", "tg": "s", "ll": [31.89, 34.81], "e": ["מעבדות במכון ויצמן, 1960–1984", "מפעלי \"ב.ג.\", 1980"]}, {"n": "נצרת", "s": "עבודה", "tg": "s", "ll": [32.7, 35.3], "e": ["מפעל \"פרמשרפ\", 1970"]}, {"n": "יבנה", "s": "עבודה", "tg": "s", "ll": [31.88, 34.74], "e": ["מרכז נוער, 1972"]}, {"n": "ראשון לציון", "s": "עבודה", "tg": "s", "ll": [31.96, 34.8], "e": ["מפעלי \"אלקטרה\", 1982–1983"]}, {"n": "בני ברק", "s": "עבודה", "tg": "s", "ll": [32.08, 34.83], "e": ["מפעלי \"אסקור\", 1985"]}, {"n": "חיפה", "ll": [32.82, 34.99], "e": ["משרד \"אל-על\" בחיפה"]}, {"n": "כפר שמריהו", "ll": [32.19, 34.83], "e": ["ווילות פרטיות"]}, {"n": "הכנרת וגני חמת", "s": "חופשות", "ll": [32.77, 35.55], "e": ["נופשים בכנרת", "מלון גני חמת"]}, {"n": "תל עזזיאת, רמת הגולן", "s": "טיולים", "ll": [33.13, 35.63], "e": ["טיול ברמת הגולן"]}, {"n": "מכתש רמון", "s": "טיולים", "ll": [30.61, 34.8], "e": ["דדה הגיע לשם עם הסובארו"]}, {"n": "שמורת יקום", "s": "טיולים", "ll": [32.26, 34.84], "e": ["טיול בשמורה"]}], "world": [{"n": "באיה, הונגריה", "ll": [46.18, 18.96], "cat": "birth", "s": "לידה", "tg": "g", "e": ["העיר שבה נולד ליאו, 1911"]}, {"n": "סרייבו", "ll": [43.86, 18.41], "cat": "birth", "s": "לידה", "tg": "g", "e": ["העיר שבה נולדה מיה, 1921"]}, {"n": "ברלין", "ll": [52.52, 13.4], "cat": "study", "s": "לימודים", "e": ["בית הספר הטכני הגבוה — תואר מהנדס-אדריכל, 1934"]}, {"n": "יוגוסלביה", "ll": [44.79, 20.45], "cat": "work", "s": "עבודה", "tg": "s", "e": ["משרד פרטי בשותפות עם קרלו שפיצר, 1935–1941"]}, {"n": "בצ'סנטיוון (Bacsszentivan), יוגוסלביה", "ll": [45.678, 19.086], "cat": "war", "e": ["עבודת הכפייה של ליאו, 1942 — לפי האישור שבעדות"]}, {"n": "גאראן (Garany), צ'כוסלובקיה", "ll": [48.544, 21.788], "cat": "war", "e": ["מאסרו של ליאו, 1943"]}, {"n": "טירקהיים (Kaufering VI)", "ll": [48.061, 10.642], "cat": "war", "e": ["תת-מחנה של דכאו שהוקם בסתיו 1944", "כרטיס האסיר של ליאו נושא את התאריך 7 בנובמבר 1944"]}, {"n": "קאופרינג III", "ll": [48.088, 10.856], "cat": "war", "e": ["שלושה ק\"מ מלנדסברג. ליאו הגיע בפברואר 1945", "כ-4,000 עצירים מיוון, פולין, ליטא, הונגריה וצ'כוסלובקיה", "עבודת כפייה באתר בנייה של מפעל"]}, {"n": "קאופרינג IV (הורלאך)", "ll": [48.119, 10.815], "cat": "war", "e": ["מחנה השמדה. חולים ומתים שולחו לשם"]}, {"n": "דכאו", "ll": [48.26, 11.43], "cat": "war", "e": ["מחנה האם. טירקהיים, קאופרינג ואלאך היו תת-מחנות שלו"]}, {"n": "אלאך (Allach)", "ll": [48.19, 11.467], "cat": "war", "e": ["כ-16 ק\"מ מדכאו. ליאו הגיע לשם בצעדת מוות בשלהי אפריל 1945", "שוחרר ב-30 באפריל 1945 בידי דיוויזיית Rainbow ה-42", "מאז חגג את התאריך הזה כיום ההולדת השני שלו"]}, {"n": "אושוויץ", "ll": [50.03, 19.2], "cat": "war", "e": ["המחנה שממנו הגיעה מיה, עם מחלת העור שבגללה אושפזה בירושלים"]}, {"n": "בלגרד", "ll": [44.79, 20.45], "cat": "war", "e": ["התמונה מ-1947 בערך — סבא איסו ואוממה, ודני, והחייל ששמר עליהם"]}, {"n": "באדן, פראג, קרלובי וארי, שפיץ", "ll": [50.08, 14.44], "cat": "trip", "s": "הטיול", "e": ["מסלול הטיול לאירופה, קיץ 1995"]}, {"n": "שוויץ", "ll": [46.8, 8.23], "cat": "trip", "e": ["Restaurant Baldegg", "DU PARC", "הפלגה על האגם", "סנט מוריץ"]}, {"n": "רומא", "ll": [41.9, 12.5], "cat": "trip", "e": ["טיול בכיכרות העיר"]}, {"n": "דלפת, הולנד", "ll": [52.01, 4.36], "cat": "trip", "e": ["ביקור אצל מיכל ואיתן, מאי 2000"]}, {"n": "איסטנבול", "ll": [41.01, 28.98], "cat": "work", "s": "עבודה", "tg": "s", "e": ["משרד \"אל-על\""]}, {"n": "טנזניה", "cat": "work", "s": "עבודה", "tg": "s", "e": ["כפר נופש, 1978"]}, {"n": "אוגנדה", "cat": "work", "s": "עבודה", "tg": "s", "e": ["בונגלו הוטל, 1980"]}, {"n": "ארצות הברית", "cat": "other", "e": ["הניתוח שעברה אוממה, שנים אחרי קטיעת הרגל"]}, {"n": "מקסיקו", "cat": "other", "e": ["מפגש עם אחד האנשים מתקופת אוניית המעפילים"]}]};
+const WEBLINKS=[{"t": "עדות של לאו גולדנר — ארכיון יד ושם", "u": "https://collections.yadvashem.org/he/documents/3727925", "d": "פריט 3727925, תיק 2039, חטיבה O.33 — עדויות, יומנים וזיכרונות. עדות כתובה בגרמנית, 24 עמודים, על תת-מחנות דכאו: טירקהיים, קאופרינג ואלאך. כוללת תרשימי מחנה, מפות, כרטיס האסיר שלו מ-7 בנובמבר 1944, אישורי מאסר ותצלומים.", "hi": 1}, {"t": "Testimony of Leo Goldner — Yad Vashem Collections", "u": "https://collections.yadvashem.org/en/documents/3727925", "d": "אותו פריט, בממשק האנגלי.", "hi": 1}, {"t": "שחרור אלאך, 30 באפריל 1945", "u": "https://furtherglory.com/DachauScrapbook/DachauLiberation/Allach.html", "d": "דף על שחרור המחנה בידי דיוויזיית Rainbow ה-42, שמצטט את ליאו גולדנר בגוף ראשון על בוקר השחרור — ומספר שמאז חגג את 30 באפריל כיום ההולדת השני שלו.", "hi": 1}, {"t": "לזכרו של לאו גולדנר — תצלום השחרור", "u": "https://www.facebook.com/258762430820999/photos/1169634306400469/", "d": "פוסט עם תצלום שחרור אלאך. ליאו במרכז התמונה, במעיל.", "hi": 1}, {"t": "שריד מבגד אסיר מדכאו — יד ושם", "u": "https://www.yadvashem.org/he/artifacts/featured/liberation/remnant-of-prisoner-clothing-dachau.html", "d": "פריט מאוסף המוזיאון של יד ושם, בפרק העוסק בשחרור.", "hi": 1}];
+const FAMILY=[{"t": "דור ראשון — ההורים של מיה", "c": "#b388c9", "u": [{"a": "איסו (ישראל)", "as": "סבא רבא", "b": "אוממה", "bs": "סבתא רבא", "k": ["מיה"], "i": "איסו היה פקיד בחברת Shell, וגר כאן עם אוממה עד יום מותו. אוממה קפצה מחלון בבריחה מחיפוש של הגרמנים, איבדה את רגלה, וחיה עם פרוטזה וכאבי פנטום."}]}, {"t": "דור שני — בבה ודדה", "c": "#e07a5f", "u": [{"a": "ליאו גולדנר — דדה", "as": "1911–2013", "b": "מיה גולדנר — בבה", "bs": "1921–2015", "k": ["יודית", "אילן"], "i": "ליאו נולד בבאיה שבהונגריה, למד אדריכלות בברלין, ושרד את דכאו. מיה נולדה בסרייבו ושרדה את אושוויץ. הם עלו ארצה ב-1948 ובנו כאן בית."}]}, {"t": "דור שלישי — הילדים", "c": "#6fa8c4", "u": [{"a": "יודית", "b": "רמי", "k": ["בועז", "מיכל"], "i": "הבת הבכורה, שנדדה עם ההורים בין דירות החדר לפני השיכון."}, {"a": "אילן", "b": "בלה", "k": ["טל", "אסף"], "i": "בנה את בית העץ על עץ התאנה, שימן את הפרוטזה של אוממה, ונוסע עד היום עם עגלת המזוודות של דדה."}]}, {"t": "דור רביעי — הנכדים", "c": "#8fb996", "u": [{"a": "בועז", "p": "בן של יודית ורמי", "k": ["רועי", "עידן", "שירה"], "i": "עזר לדדה לפרוס את הרשתות מעל העצים."}, {"a": "מיכל", "b": "איתן", "p": "בת של יודית ורמי", "k": ["ניר", "עמרי"], "i": "בבה ודדה ביקרו אצלם בדלפת, במאי 2000."}, {"a": "טל", "b": "איתי", "p": "בת של אילן ובלה", "k": ["רנה"], "i": "בתמונת הקומפוסט — מקבלת הוראות מדויקות."}, {"a": "אסף", "b": "מאיה", "p": "בן של אילן ובלה", "k": ["ליה", "עמית"], "i": "בתמונת הקטיף מ-1997, יחד עם טל ועומר פרייס."}]}, {"t": "דור חמישי — הנינים", "c": "#e3a93c", "u": [{"a": "רועי", "p": "בן של בועז"}, {"a": "עידן", "p": "בן של בועז"}, {"a": "שירה", "p": "בת של בועז"}, {"a": "ניר", "p": "בן של מיכל ואיתן"}, {"a": "עמרי", "p": "בן של מיכל ואיתן"}, {"a": "רנה", "p": "בת של טל ואיתי"}, {"a": "ליה", "p": "בת של אסף ומאיה"}, {"a": "עמית", "p": "בן/בת של אסף ומאיה"}]}];
+
+/* ===== עץ משפחה מוטמע ===== */
+function renderFamily(){const w=$('fam');if(!w)return;
+ w.innerHTML=FAMILY.map(g=>`<div class="fgen">
+  <div class="fgen-t" style="--gc:${g.c}">${esc(g.t)}</div>
+  <div class="grid g2">`+g.u.map(u=>`<div class="fcard" style="--gc:${g.c}">
+    <div class="fnames">
+      <span class="fp">${esc(u.a)}${u.as?` <small>${esc(u.as)}</small>`:''}</span>
+      ${u.b?`<span class="famp">&amp;</span><span class="fp">${esc(u.b)}${u.bs?` <small>${esc(u.bs)}</small>`:''}</span>`:''}
+    </div>
+    ${u.p?`<div class="fpar">${esc(u.p)}</div>`:''}
+    ${u.i?`<div class="finfo">${nl(u.i)}</div>`:''}
+    ${u.k&&u.k.length?`<div class="fkids"><b>ילדים:</b> ${u.k.map(esc).join(' · ')}</div>`:''}
+  </div>`).join('')+`</div></div>`).join('');}
+
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const val=id=>document.getElementById(id).value.trim();
+const clr=(...ids)=>ids.forEach(i=>{const e=document.getElementById(i);if(e)e.value='';});
+const $=id=>document.getElementById(id);
+
+/* ===== ניווט ===== */
+const TABS=[["s-home","בית"],["s-story","סיפורים"],["s-time","ציר זמן"],["s-gallery","גלריה"],
+ ["s-leo","ליאו — האדריכל"],["s-places","מקומות"],["s-recipes","המטבח"],["s-trivia","טריוויה"],
+ ["s-tree","עץ המשפחה"],["s-links","קישורים"],["s-qa","שאלות פתוחות"],["s-data","שמירה"]];
+function go(id){
+ document.querySelectorAll('nav button[data-s]').forEach(x=>x.classList.toggle('on',x.dataset.s===id));
+ document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id));
+ const l=document.querySelector('nav .links');if(l)l.classList.remove('open');
+ if(location.hash.slice(1)!==id)history.replaceState(null,'','#'+id);
+ window.scrollTo({top:0,behavior:'smooth'});}
+(function(){const n=$('nav');
+ const bg=document.createElement('button');bg.id='burger';bg.innerHTML='☰';
+ bg.setAttribute('aria-label','תפריט');
+ bg.onclick=()=>document.querySelector('nav .links').classList.toggle('open');
+ n.appendChild(bg);
+ const b=document.createElement('div');b.className='brand';b.textContent='בבה ודדה';
+ b.onclick=()=>go('s-home');n.appendChild(b);
+ const wrapL=document.createElement('div');wrapL.className='links';n.appendChild(wrapL);
+ TABS.forEach(([id,label])=>{const x=document.createElement('button');
+  x.textContent=label;x.dataset.s=id;if(id==='s-home')x.classList.add('on');
+  x.onclick=()=>go(id);wrapL.appendChild(x);});
+ const h=location.hash.slice(1);
+ if(h&&TABS.some(t=>t[0]===h))setTimeout(()=>go(h),0);})();
+
+/* ===== דף הבית ===== */
+const HOME_TILES=[
+ ["s-story","📖","הסיפורים","עשרה פרקים שתומללו מהשיחה המשפחתית"],
+ ["s-time","🕰️","ציר הזמן","מ-1911 ועד היום, הכול במקום אחד"],
+ ["s-gallery","🖼️","גלריה","תמונות הארכיון לפי תקופות"],
+ ["s-leo","📐","ליאו — האדריכל","קורות החיים והפרויקטים"],
+ ["s-places","🗺️","מקומות","המפה של החיים שלהם"],
+ ["s-recipes","🍰","המטבח","המתכונים בכתב ידם"],
+ ["s-trivia","🎲","טריוויה","כמה אתם באמת יודעים?"],
+ ["s-tree","🌳","עץ המשפחה","ארבעה דורות"],
+];
+let HERO=[];
+function heroClick(i){const p=HERO[i||0];if(p)lbOpen(ARCHIVE.indexOf(p));}
+
+/* ===== יום ההולדת של דדה — 5 באוקטובר 1911 ===== */
+const BORN={y:1911,m:10,d:5};
+const HE_MON=['בינואר','בפברואר','במרץ','באפריל','במאי','ביוני','ביולי','באוגוסט',
+ 'בספטמבר','באוקטובר','בנובמבר','בדצמבר'];
+function bdayInfo(now){
+ const t=now||new Date();
+ const Y=t.getFullYear(), M=t.getMonth()+1, D=t.getDate();
+ const today=new Date(Y,M-1,D), bd=new Date(Y,BORN.m-1,BORN.d);
+ const days=Math.round((bd-today)/864e5);            // חיובי = לפני, שלילי = אחרי
+ const age=Y-BORN.y;                                  // הגיל שהיה מלאו לו השנה
+ return {days,age,Y,show:Math.abs(days)<=3};
+}
+function renderBday(){
+ const w=$('bday');if(!w)return;
+ const b=bdayInfo();
+ if(!b.show){w.innerHTML='';return;}
+ const sparks=[12,30,48,66,84].map((x,i)=>
+  `<span class="spark" style="right:${x}px;bottom:34px;animation-delay:${i*0.9}s"></span>`).join('');
+ const candle=`<svg viewBox="0 0 60 92" width="74" height="112" aria-hidden="true">
+   <ellipse cx="30" cy="86" rx="21" ry="5" fill="#f0dcc0"/>
+   <rect x="18" y="34" width="24" height="52" rx="5" fill="#fff6e8" stroke="#eed9bb"/>
+   <rect x="18" y="34" width="9" height="52" rx="5" fill="#fffdf8"/>
+   <rect x="29" y="25" width="2.5" height="10" fill="#8a7563"/>
+   <g class="flame">
+     <path d="M30 0c7 9 11 14 11 20a11 11 0 0 1-22 0c0-6 4-11 11-20z" fill="#e3a93c"/>
+     <path d="M30 9c4 5 6 8 6 12a6 6 0 0 1-12 0c0-4 2-7 6-12z" fill="#fff0c2"/>
+   </g></svg>`;
+ let head,sub;
+ if(b.days===0){
+  head=`היום מלאו <b>${b.age}</b> שנה להולדתו של דדה`;
+  sub=`ליאו גולדנר נולד ב-5 ${HE_MON[9]} 1911 בבאיה שבהונגריה. היום, ${b.Y}, זה יום ההולדת ה-${b.age} שלו.`;
+ }else if(b.days>0){
+  head=`עוד ${b.days===1?'יום אחד':b.days+' ימים'} ליום ההולדת של דדה`;
+  sub=`ב-5 ${HE_MON[9]} ימלאו ${b.age} שנה להולדתו של ליאו גולדנר, בבאיה שבהונגריה, 1911.`;
+ }else{
+  head=`לפני ${-b.days===1?'יום':(-b.days)+' ימים'} מלאו ${b.age} שנה להולדתו של דדה`;
+  sub=`ליאו גולדנר נולד ב-5 ${HE_MON[9]} 1911 בבאיה שבהונגריה.`;
+ }
+ w.innerHTML=`<div class="bday">
+   <div class="cake">${sparks}${candle}
+     <div class="num">${b.age}</div><div class="numl">שנה</div></div>
+   <div>
+     <h3>${head}</h3>
+     <p>${sub}</p>
+     <p style="margin-top:8px">ובאותה נשימה — את ה-30 באפריל הוא נהג לציין כיום ההולדת השני שלו,
+        מאז הבוקר שבו השתחרר מאלאך ב-1945.</p>
+     <div class="acts">
+       <button class="btn sm" onclick="go('s-time')">ציר הזמן שלו</button>
+       <button class="btn sec sm" onclick="go('s-leo')">הפרויקטים שבנה</button>
+       <button class="btn sec sm" onclick="openStory('יום ההולדת השני')">סיפור השחרור</button>
+     </div>
+   </div></div>`;}
+function openStory(title){go('s-story');
+ setTimeout(()=>{const i=STORIES.findIndex(s=>s.title===title);
+  const c=document.querySelectorAll('#baked-stories .card')[i];
+  if(c)c.scrollIntoView({behavior:'smooth',block:'center'});},120);}
+function renderHome(){
+ const find=re=>ARCHIVE.find(p=>re.test(p.cap));
+ const wed=find(/חתן וכלה/)||find(/מיה וליאו/);
+ const pair=find(/^בבה ודדה$/)||find(/בבה ודדה/);
+ HERO=[wed||pair||ARCHIVE[0], (pair&&pair!==wed)?pair:null].filter(Boolean);
+ const h=$('hero-img'),h2=$('hero-img2');
+ if(HERO[0]){h.src=HERO[0].src;h.alt=HERO[0].cap||'';}
+ if(HERO[1]){h2.src=HERO[1].src;h2.alt=HERO[1].cap||'';} else h2.style.display='none';
+ $('home-stats').innerHTML=[
+  [ARCHIVE.length,'תמונות בארכיון'],[STORIES.length,'סיפורים'],
+  [(CV.projects||[]).length,'פרויקטים של ליאו'],[RECIPES.length,'מתכונים'],
+  [TRIVIA.length,'שאלות טריוויה'],[(PLACES.il||[]).length+(PLACES.world||[]).length,'מקומות'],
+ ].map(([n,t])=>`<div class="stat"><b>${n}</b><span>${t}</span></div>`).join('');
+ $('home-tiles').innerHTML=HOME_TILES.map(([id,ic,t,d])=>
+  `<div class="htile" onclick="go('${id}')"><div class="ic">${ic}</div><b>${t}</b><span>${d}</span></div>`).join('');}
+
+/* ===== סיפורים וזיכרונות ===== */
+function renderBaked(){
+ $('baked-stories').innerHTML=STORIES.map(x=>`<div class="card">${x.era?`<span class="tag">${esc(x.era)}</span>`:''}
+  <h3>${esc(x.title)}</h3>${x.body.map(p=>'<p>'+nl(p)+'</p>').join('')}
+  <div class="by">${esc(x.src||'')}</div></div>`).join('');
+ $('baked-memos').innerHTML='<div class="card">'+MEMOS.map(x=>`<div class="memo"><p>${nl(x.t)}</p>
+  <div class="by">— ${esc(x.by)}</div></div>`).join('')+'</div>';}
+
+/* ===== ציר זמן ===== */
+function renderTime(){
+ $('time-list').innerHTML=TIMELINE.map(x=>`<div class="it ${esc(x.k||'')}">
+  <div class="yr">${esc(x.y)}</div><b>${esc(x.t)}</b>
+  ${x.d?`<div style="color:var(--ink2)">${nl(x.d)}</div>`:''}</div>`).join('');}
+
+/* ===== ליאו ===== */
+let CVF='הכול',CVCATS=[];
+function cvFilter(i){CVF=CVCATS[i]||'הכול';renderCv2();}
+function renderCv2(){
+ $('cv-stats').innerHTML=(CV.stats||[]).map(s=>`<div class="stat"><b>${esc(s.n)}</b><span>${esc(s.t)}</span></div>`).join('');
+ $('cv-path').innerHTML=(CV.path||[]).map(x=>`<div class="it"><div class="yr">${esc(x.y)}</div>
+  <b>${esc(x.t)}</b>${x.d?`<div style="color:var(--ink2)">${nl(x.d)}</div>`:''}</div>`).join('');
+ const cats=['הכול',...new Set((CV.projects||[]).map(p=>p.c))];
+ CVCATS=cats;
+ $('cv-filters').innerHTML=cats.map((c,ci)=>`<button class="btn ${c===CVF?'':'sec'} sm" onclick="cvFilter(${ci})">${esc(c)}</button>`).join('');
+ const list=(CV.projects||[]).filter(p=>CVF==='הכול'||p.c===CVF);
+ $('cv-projects').innerHTML=list.map(p=>`<div class="card" style="padding:15px 18px;margin:0">
+  <div class="row" style="justify-content:space-between;align-items:baseline">
+   <b>${esc(p.t)}</b><span style="color:var(--acc);font-weight:700">${esc(p.y)}</span></div>
+  ${p.p?`<div style="color:var(--ink2);font-size:.9rem">${esc(p.p)}</div>`:''}
+  <span class="tag" style="margin-top:8px">${esc(p.c)}</span></div>`).join('');
+ $('cv-foot').textContent=CV.note||'';}
+
+/* ===== מקומות ===== */
+const IL_OUTLINE=[[35.10,33.09],[34.99,32.82],[34.85,32.33],[34.77,32.08],[34.65,31.80],
+ [34.57,31.67],[34.48,31.55],[34.42,30.88],[34.90,29.55],[35.00,30.00],[35.37,31.15],
+ [35.47,31.77],[35.55,32.40],[35.57,32.70],[35.65,33.00],[35.78,33.27]];
+const CATC={birth:'#c77dba',study:'#6fa8c4',war:'#8d7f77',work:'#5e9a7a',trip:'#e3a93c',other:'#e07a5f'};
+const CATN={birth:'לידה',study:'לימודים',war:'שנות המלחמה',work:'עבודה',trip:'טיולים וביקורים',other:'אחר'};
+let MAPV='il', VB=null, VB0=null;
+
+function mkMap(kind){
+ const W=560, H=kind==='il'?760:620;
+ const B = kind==='il' ? {L0:34.25,L1:35.95,B0:29.40,B1:33.45}
+                       : {L0:2.0 ,L1:37.0 ,B0:29.0 ,B1:55.5};
+ const mx=lo=>(lo-B.L0)/(B.L1-B.L0)*W, my=la=>(B.B1-la)/(B.B1-B.B0)*H;
+ const src=(kind==='il'?(PLACES.il||[]):(PLACES.world||[]));
+ const pts=src.map((p,i)=>({p,i})).filter(o=>o.p.ll)
+   .map(o=>({...o,x:mx(o.p.ll[1]),y:my(o.p.ll[0])}));
+ pts.forEach(o=>{o.side=o.x>W*0.52?1:-1;o.ly=o.y;});
+ [-1,1].forEach(sd=>{const g=pts.filter(o=>o.side===sd).sort((a,b)=>a.y-b.y);const MIN=17;
+  for(let k=1;k<g.length;k++) if(g[k].ly-g[k-1].ly<MIN) g[k].ly=g[k-1].ly+MIN;
+  let over=g.length?g[g.length-1].ly-(H-6):0;
+  if(over>0) for(let k=g.length-1;k>=0;k--){g[k].ly-=over; if(k&&g[k].ly-g[k-1].ly>=MIN) break;}});
+ const pre=kind==='il'?'plc-':'plw-';
+ const pins=pts.map(o=>{
+  const col=kind==='il'?'var(--acc)':(CATC[o.p.cat]||CATC.other);
+  const lx=o.side>0?o.x+22:o.x-22;
+  const lead=Math.abs(o.ly-o.y)>3
+   ? `<polyline points="${o.x.toFixed(1)},${o.y.toFixed(1)} ${(o.x+o.side*11).toFixed(1)},${o.ly.toFixed(1)} ${lx.toFixed(1)},${o.ly.toFixed(1)}" fill="none" stroke="#dcc9b4" stroke-width="1"/>`:'';
+  return `<g class="pin" onclick="jump('${pre}${o.i}')">${lead}
+   <circle cx="${o.x.toFixed(1)}" cy="${o.y.toFixed(1)}" r="6" fill="${col}" stroke="#fff" stroke-width="1.8"/>
+   <text x="${(o.side>0?lx+3:lx-3).toFixed(1)}" y="${(o.ly+4).toFixed(1)}" font-size="12.5"
+    text-anchor="${o.side>0?'start':'end'}" fill="#6b5546" font-family="inherit">${esc(o.p.n)}</text></g>`;}).join('');
+ let base;
+ if(kind==='il'){
+  base=`<path d="${IL_OUTLINE.map((p,i)=>(i?'L':'M')+mx(p[0]).toFixed(1)+' '+my(p[1]).toFixed(1)).join(' ')} Z"
+         fill="#f3f8f3" stroke="#cfe0d2" stroke-width="2"/>`;
+ }else{
+  let g='';
+  for(let lo=5;lo<=35;lo+=5) g+=`<line x1="${mx(lo)}" y1="0" x2="${mx(lo)}" y2="${H}" stroke="#f0e4d4" stroke-width="1"/>
+    <text x="${mx(lo)+3}" y="${H-4}" font-size="9" fill="#cbb9a6">${lo}°E</text>`;
+  for(let la=30;la<=55;la+=5) g+=`<line x1="0" y1="${my(la)}" x2="${W}" y2="${my(la)}" stroke="#f0e4d4" stroke-width="1"/>
+    <text x="2" y="${my(la)-3}" font-size="9" fill="#cbb9a6">${la}°N</text>`;
+  const by={}; src.forEach(p=>{if(p.ll)by[p.n]=[mx(p.ll[1]),my(p.ll[0])];});
+  const il0=[mx(34.78),my(32.08)];
+  const route=(names,col,dash)=>{const q=names.map(n=>by[n]).filter(Boolean);q.push(il0);
+   return q.length<2?'':`<polyline points="${q.map(c=>c[0].toFixed(1)+','+c[1].toFixed(1)).join(' ')}"
+    fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="${dash}" opacity=".55"/>`;};
+  g+=route(['באיה, הונגריה','ברלין','יוגוסלביה','דכאו'],'#6fa8c4','7 5');
+  g+=route(['סרייבו','אושוויץ'],'#c77dba','7 5');
+  g+=`<circle cx="${il0[0]}" cy="${il0[1]}" r="7" fill="#e07a5f" stroke="#fff" stroke-width="2"/>
+      <text x="${il0[0]-11}" y="${il0[1]+4}" font-size="13" text-anchor="end" fill="#6b5546" font-weight="700">ישראל, 1948</text>`;
+  base=g;
+ }
+ const V=[-125,-14,W+250,H+28];
+ return {svg:`<svg id="themap" viewBox="${V.join(' ')}" xmlns="http://www.w3.org/2000/svg">
+   ${base}${pins}</svg>`, vb:V};
+}
+function jump(id){const e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'center'});}
+function setMap(k){MAPV=k;
+ $('mt-il').className='btn sm'+(k==='il'?'':' sec');
+ $('mt-eu').className='btn sm'+(k==='eu'?'':' sec');
+ const m=mkMap(k);VB=m.vb.slice();VB0=m.vb.slice();
+ $('map-il').innerHTML=(k==='eu'?`<div class="mlgnd">${Object.keys(CATN).filter(c=>c!=='other')
+   .map(c=>`<span><i style="background:${CATC[c]}"></i>${CATN[c]}</span>`).join('')}</div>`:'')+m.svg
+  +`<div class="maphint">${k==='il'?'מפה סכמטית — קו החוף מקורב, הנקודות ממוקמות לפי קואורדינטות':
+    'פריסה לפי קווי אורך ורוחב. הקווים המקווקווים הם מסלול משוער, לפי התאריכים הידועים'}</div>`;
+ bindMap();}
+function applyVB(){const s=document.getElementById('themap');if(s)s.setAttribute('viewBox',VB.join(' '));}
+function mz(f,cx,cy){if(!VB)return;const [x,y,w,h]=VB;
+ const nw=Math.min(VB0[2]*1.1,Math.max(VB0[2]*0.12,w*f)),nh=nw*(VB0[3]/VB0[2]);
+ const px=cx==null?0.5:cx, py=cy==null?0.5:cy;
+ VB=[x+(w-nw)*px, y+(h-nh)*py, nw, nh];applyVB();}
+function mReset(){VB=VB0.slice();applyVB();}
+function bindMap(){const s=document.getElementById('themap');if(!s)return;
+ s.addEventListener('wheel',e=>{e.preventDefault();const r=s.getBoundingClientRect();
+  mz(e.deltaY>0?1.15:0.87,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);},{passive:false});
+ let drag=null;
+ s.addEventListener('pointerdown',e=>{if(e.target.closest('.pin'))return;
+  drag={x:e.clientX,y:e.clientY,vb:VB.slice()};s.setPointerCapture(e.pointerId);s.classList.add('grabbing');});
+ s.addEventListener('pointermove',e=>{if(!drag)return;const r=s.getBoundingClientRect();
+  VB=[drag.vb[0]-(e.clientX-drag.x)/r.width*drag.vb[2],
+      drag.vb[1]-(e.clientY-drag.y)/r.height*drag.vb[3],drag.vb[2],drag.vb[3]];applyVB();});
+ s.addEventListener('pointerup',()=>{drag=null;s.classList.remove('grabbing');});}
+
+function renderPlaces(){
+ const il=PLACES.il||[],wd=PLACES.world||[];
+ setMap(MAPV);
+ const card=(p,i,pre)=>`<div class="pl-card" id="${pre}${i}">
+   <b>${esc(p.n)}</b>${p.s?` <span class="tag ${p.tg||''}">${esc(p.s)}</span>`:''}
+   <ul>${p.e.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul></div>`;
+ $('pl-il').innerHTML=il.map((p,i)=>card(p,i,'plc-')).join('');
+ $('pl-world').innerHTML=wd.map((p,i)=>card(p,i,'plw-')).join('');}
+
+/* ===== קישורים ===== */
+function renderLinks(){
+ $('links-baked').innerHTML=WEBLINKS.map(l=>`<div class="lk"><div class="ic">${l.hi?'⭐':'🔗'}</div><div>
+  ${l.u?`<a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a>`:`<b>${esc(l.t)}</b>`}
+  <small>${esc(l.d||'')}</small></div></div>`).join('');
+ const u=D.links||[];
+ $('links-user').innerHTML=u.length?u.map((l,i)=>`<div class="lk"><div class="ic">🔗</div><div style="flex:1">
+   <a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a><small>${esc(l.d||'')}</small></div>
+   <button class="btn sec sm" onclick="del('links',${i})">מחיקה</button></div>`).join('')
+  :'<div class="empty">עדיין לא נוספו קישורים.</div>';}
+function addLink(){const u=val('lk-u');if(!u)return;
+ D.links=D.links||[];D.links.push({t:val('lk-t')||u,u:/^https?:/.test(u)?u:'https://'+u,d:val('lk-d')});
+ save();clr('lk-t','lk-u','lk-d');renderLinks();}
+
+/* ===== מתכונים מוטמעים ===== */
+function renderRecipesBaked(){
+ $('baked-recipes').innerHTML=RECIPES.map((r,ri)=>`<div class="card">
+  <div class="row" style="justify-content:space-between;align-items:baseline">
+   <h3 style="margin:0">${esc(r.t)}</h3><span class="tag">${esc(r.by)}</span></div>
+  ${r.date?`<div style="font-size:.82rem;color:var(--ink2)">${esc(r.date)}</div>`:''}
+  <div class="rec-wrap">
+   <div class="rec-scan"><img src="${r.img}" loading="lazy" alt="${esc(r.t)}"
+     onclick="lbRec(${ri})"><div class="rec-hint">לחיצה להגדלה</div></div>
+   <div class="rec-txt">
+    ${r.ing&&r.ing.length?`<b>מצרכים</b><ul>${r.ing.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul>`:''}
+    ${r.steps&&r.steps.length?`<b>אופן ההכנה</b><ol>${r.steps.map(x=>'<li>'+esc(x)+'</li>').join('')}</ol>`:''}
+    ${r.note?`<div class="rec-note">${nl(r.note)}</div>`:''}
+   </div></div></div>`).join('');}
+
+/* ===== טריוויה ===== */
+const MODES=[["quiz","🎯 אמריקאי","ארבע אפשרויות לכל שאלה"],
+             ["open","✍️ תשובה פתוחה","חושבים, ואז מגלים"],
+             ["browse","📚 עיון","כל השאלות והתשובות"]];
+let TMODE='quiz',TQ=[],TI=0,TS=0,TLock=false;
+function renderModes(){$('tv-modes').innerHTML=MODES.map(([k,t])=>
+ `<button class="btn ${k===TMODE?'':'sec'} sm" onclick="tvMode('${k}')">${t}</button>`).join('');}
+function tvMode(m){TMODE=m;renderModes();
+ const br=m==='browse';
+ $('tv-browse').style.display=br?'':'none';
+ $('tv-game').style.display=br?'none':'';
+ $('tv-end').style.display='none';
+ if(br)renderBrowse(); else tvStart();}
+function renderBrowse(){
+ const cats=[...new Set(TRIVIA.map(q=>q.cat))];
+ $('tv-browse').innerHTML=cats.map(c=>`<h3 style="margin:22px 0 12px">${esc(c)}</h3>
+  <div class="brw">`+TRIVIA.filter(q=>q.cat===c).map(q=>`<div class="bcard">
+   <div class="qq">${esc(q.q)}</div><div class="aa">${nl(q.a)}</div>
+   ${q.note?`<div class="nn">${nl(q.note)}</div>`:''}</div>`).join('')+`</div>`).join('');}
+function tvStart(){TQ=TRIVIA.map((q,i)=>({...q,i})).sort(()=>Math.random()-.5);
+ TI=0;TS=0;$('tv-end').style.display='none';$('tv-game').style.display='';tvShow();}
+function shortA(s){return String(s).split(/[.\n]/)[0].trim().slice(0,70);}
+function tvShow(){const q=TQ[TI];TLock=false;
+ $('tv-fill').style.width=(TI/TQ.length*100)+'%';
+ $('tv-meta').textContent=`שאלה ${TI+1} מתוך ${TQ.length} · ניקוד ${TS}`;
+ $('tv-cat').textContent=q.cat;
+ $('tv-q').textContent=q.q;
+ const a=$('tv-a');a.innerHTML=nl(q.a);a.classList.remove('show');
+ const nt=$('tv-note');nt.innerHTML=q.note?nl(q.note):'';nt.classList.remove('show');
+ if(TMODE==='quiz'){
+  const right=q.s||shortA(q.a);
+  const opts=[right,...(q.o||[])].sort(()=>Math.random()-.5);
+  $('tv-opts').innerHTML=opts.map((o,i)=>
+   `<button class="opt" data-i="${i}" onclick="tvPick(this,${JSON.stringify(o===right)})">${esc(o)}</button>`).join('');
+  $('tv-btns').innerHTML='';
+ }else{
+  $('tv-opts').innerHTML='';
+  $('tv-btns').innerHTML=`<button class="btn" onclick="tvReveal()">גילוי התשובה</button>
+   <button class="btn sec" onclick="tvNext(0)">דילוג</button>`;}}
+function tvPick(el,ok){if(TLock)return;TLock=true;
+ [...$('tv-opts').children].forEach(b=>{b.disabled=true;});
+ el.classList.add(ok?'ok':'no');
+ const right=TQ[TI].s||shortA(TQ[TI].a);
+ if(!ok)[...$('tv-opts').children].forEach(b=>{if(b.textContent===right)b.classList.add('ok');});
+ $('tv-a').classList.add('show');$('tv-note').classList.add('show');
+ if(ok)TS++;
+ $('tv-btns').innerHTML=`<button class="btn" onclick="tvNext(-1)">הבא</button>`;}
+function tvReveal(){if(TLock)return;TLock=true;
+ $('tv-a').classList.add('show');$('tv-note').classList.add('show');
+ $('tv-btns').innerHTML=`<button class="btn" onclick="tvNext(1)">ידעתי</button>
+  <button class="btn sec" onclick="tvNext(0)">לא ידעתי</button>`;}
+function tvNext(ok){if(ok>0)TS+=1;TI++;if(TI>=TQ.length)return tvEnd();tvShow();}
+function tvEnd(){$('tv-game').style.display='none';
+ $('tv-end').style.display='';$('tv-fill').style.width='100%';
+ $('tv-score').textContent=`${TS} / ${TQ.length}`;
+ const p=TS/TQ.length;
+ $('tv-msg').textContent=
+  p===1?'הכול. אתם הארכיון המשפחתי בעצמכם.':
+  p>=.75?'מרשים מאוד — הסיפורים האלה נשמרו היטב.':
+  p>=.5?'יפה. חצי מהסיפור כבר אצלכם.':
+  p>=.25?'יש עוד הרבה לגלות — וזאת בדיוק המטרה של האתר הזה.':
+  'התחלה טובה. עכשיו כבר תדעו.';}
+
+/* ===== אחסון ===== */
+const KEY='baba-dede-v2';
+const BLANK={stories:[],cv:[],photos:[],docs:[],rphotos:[],recipes:[],qa:[],links:[],tree:null};
+let D=BLANK;
+try{const r=localStorage.getItem(KEY);if(r)D=Object.assign({},BLANK,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(D));}catch(e){
+  alert('אין מספיק מקום בדפדפן לשמירה. כדאי לייצא גיבוי ולהסיר כמה תמונות.');}stats();}
+
+/* ===== תוכן שהמשפחה מוסיפה ===== */
+function renderStories(){const w=$('story-list');
+ if(!D.stories.length){w.innerHTML='<div class="empty">עדיין לא נוספו פרקים.</div>';return;}
+ w.innerHTML=D.stories.map((s,i)=>`<div class="card">${s.year?`<span class="tag">${esc(s.year)}</span>`:''}
+  <h3>${esc(s.title)}</h3><p>${nl(s.body)}</p>
+  <div class="row" style="justify-content:space-between">
+  <small style="color:var(--ink2)">${s.who?'נכתב על ידי '+esc(s.who):''}</small>
+  <button class="btn sec sm" onclick="del('stories',${i})">מחיקה</button></div></div>`).join('');}
+function addStory(){if(!val('st-t')&&!val('st-b'))return;
+ D.stories.push({title:val('st-t')||'ללא כותרת',year:val('st-y'),body:val('st-b'),who:val('st-w')});
+ save();clr('st-t','st-y','st-b');renderStories();}
+
+function renderCv(){const w=$('cv-list');
+ if(!D.cv.length){w.innerHTML='<div class="empty">עדיין לא נוספו תוספות.</div>';return;}
+ const s=[...D.cv].sort((a,b)=>(parseInt(a.year)||9999)-(parseInt(b.year)||9999));
+ w.innerHTML=s.map(x=>`<div class="it"><div class="yr">${esc(x.year)}</div>
+  <b>${esc(x.title)}</b><div style="color:var(--ink2)">${nl(x.body)}</div>
+  <button class="btn sec sm" style="margin-top:6px" onclick="del('cv',${D.cv.indexOf(x)})">מחיקה</button></div>`).join('');}
+function addCv(){if(!val('cv-t'))return;
+ D.cv.push({year:val('cv-y'),title:val('cv-t'),body:val('cv-b')});save();clr('cv-y','cv-t','cv-b');renderCv();}
+
+function renderMedia(k){const w=$(k+'-list');if(!w)return;
+ if(!D[k].length){w.innerHTML='<div class="empty" style="grid-column:1/-1">עדיין ריק — גררו קבצים למסגרת למעלה.</div>';return;}
+ w.innerHTML=D[k].map((p,i)=>`<div class="tile"><img src="${p.src}" alt="${esc(p.cap)}" onclick="lbMedia('${k}',${i})">
+  <button class="x" onclick="del('${k}',${i})">×</button>
+  <div class="cap" onclick="cap('${k}',${i})">${esc(p.cap)||'הוספת כיתוב'}</div></div>`).join('');}
+function cap(k,i){const v=prompt('כיתוב לתמונה:',D[k][i].cap||'');if(v!==null){D[k][i].cap=v;save();renderMedia(k);}}
+function files(list,k){[...list].filter(f=>f.type.startsWith('image/')).forEach(f=>{
+ const r=new FileReader();r.onload=e=>{D[k].push({src:e.target.result,cap:f.name.replace(/\.[^.]+$/,'')});
+  save();renderMedia(k);};r.readAsDataURL(f);});}
+document.querySelectorAll('.drop').forEach(d=>{const k=d.dataset.target;
+ d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('hot');});
+ d.addEventListener('dragleave',()=>d.classList.remove('hot'));
+ d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('hot');files(e.dataTransfer.files,k);});
+ d.addEventListener('click',()=>{const i=document.createElement('input');i.type='file';i.multiple=true;
+  i.accept='image/*';i.onchange=()=>files(i.files,k);i.click();});});
+
+function renderRecipes(){const w=$('recipe-list');
+ if(!D.recipes.length){w.innerHTML='';return;}
+ w.innerHTML=D.recipes.map((r,i)=>`<div class="card"><span class="tag">${esc(r.cat)}</span>
+  <h3>${esc(r.title)}</h3><div class="grid g2">
+  <div><b>מצרכים</b><ul>${(r.ing||'').split('\n').filter(x=>x.trim()).map(x=>'<li>'+esc(x)+'</li>').join('')}</ul></div>
+  <div><b>הכנה</b><p>${nl(r.body)}</p></div></div>
+  <button class="btn sec sm" onclick="del('recipes',${i})">מחיקה</button></div>`).join('');}
+function addRecipe(){if(!val('rc-t'))return;
+ D.recipes.push({title:val('rc-t'),cat:$('rc-c').value,ing:val('rc-i'),body:val('rc-b')});
+ save();clr('rc-t','rc-i','rc-b');renderRecipes();}
+
+function renderQa(){const w=$('qa-list');
+ if(!D.qa.length){w.innerHTML='<div class="empty">עדיין אין שאלות.</div>';return;}
+ w.innerHTML='<div class="card">'+D.qa.map((q,i)=>`<div class="item"><div class="q" onclick="this.parentNode.classList.toggle('open')">${esc(q.q)}</div>
+  <div class="a">${q.a?nl(q.a):'<i>עדיין ללא תשובה.</i>'}
+  <br><button class="btn sec sm" style="margin-top:8px" onclick="del('qa',${i})">מחיקה</button></div></div>`).join('')+'</div>';}
+function addQa(){if(!val('qa-q'))return;D.qa.push({q:val('qa-q'),a:val('qa-a')});save();clr('qa-q','qa-a');renderQa();}
+
+/* ===== גלריה ו-lightbox ===== */
+function renderArch(){const w=$('arch-list');
+ $('arch-n').textContent=ARCHIVE.length+' תמונות';
+ const eras=[];ARCHIVE.forEach(p=>{if(!eras.length||eras[eras.length-1].t!==p.era)eras.push({t:p.era,items:[]});
+  eras[eras.length-1].items.push(p);});
+ w.innerHTML=eras.map(e=>`<div class="era"><h3 class="era-t">${esc(e.t)} <span class="tag">${e.items.length}</span></h3>
+  <div class="grid g3">`+e.items.map(p=>`<div class="tile"><img src="${p.src}" loading="lazy" alt="${esc(p.cap)}" onclick="lbOpen(${ARCHIVE.indexOf(p)})">
+  ${p.cap?`<div class="cap"><b>${esc(p.year||'')}</b> ${esc(p.cap)}</div>`:''}</div>`).join('')+`</div></div>`).join('');}
+let LBI=-1;
+function lbOpen(i){const p=ARCHIVE[i];if(!p)return;LBI=i;
+ $('lb-i').src=p.src;$('lb-i').alt=p.cap||'';
+ $('lb-yr').textContent=p.year||'שנה לא ידועה';
+ $('lb-era').textContent=p.era||'';
+ $('lb-cap').innerHTML=nl(p.cap||'');
+ const s=p.story?STORIES.find(x=>x.title===p.story):null;
+ $('lb-story').innerHTML=s?`<h4>${esc(s.title)}</h4>${s.body.map(b=>'<p>'+nl(b)+'</p>').join('')}
+   <p style="opacity:.6;font-size:.8rem">${esc(s.src||'')}</p>`:'';
+ $('lb-num').textContent=`תמונה ${i+1} מתוך ${ARCHIVE.length}`;
+ $('lb').style.display='flex';document.querySelector('#lb .side').scrollTop=0;}
+function lbRec(i){const r=RECIPES[i];if(r)lb(r.img,r.t+(r.date?' · '+r.date:''));}
+function lbMedia(k,i){const p=(D[k]||[])[i];if(p)lb(p.src,p.cap);}
+function lb(src,cap){LBI=-1;$('lb-i').src=src;
+ $('lb-yr').textContent='';$('lb-era').textContent='';
+ $('lb-cap').innerHTML=nl(cap||'');$('lb-story').innerHTML='';$('lb-num').textContent='';
+ $('lb').style.display='flex';}
+function lbStep(d){if(LBI<0)return;lbOpen((LBI+d+ARCHIVE.length)%ARCHIVE.length);}
+function lbClose(){$('lb').style.display='none';LBI=-1;}
+$('lb').addEventListener('click',e=>{if(e.target.id==='lb')lbClose();});
+document.addEventListener('keydown',e=>{if($('lb').style.display!=='flex')return;
+ if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbStep(-1);if(e.key==='ArrowLeft')lbStep(1);});
+
+/* ===== עץ ===== */
+const SEED=[{n:'ליאו (דדה)',d:'1911–2013',x:300,y:40},{n:'מיה (בבה)',d:'1921–2015',x:470,y:40},
+ {n:'יודית',d:'בת',x:220,y:190},{n:'אילן',d:'בן',x:420,y:190}];
+function renderTree(){const t=$('tree');t.innerHTML='';
+ if(!D.tree)D.tree=SEED.map(o=>({...o}));
+ D.tree.forEach((p,i)=>{const e=document.createElement('div');e.className='node';
+  e.style.right=p.x+'px';e.style.top=p.y+'px';
+  e.innerHTML=`<b>${esc(p.n)}</b><small>${esc(p.d)}</small>`;
+  e.ondblclick=()=>{if(confirm('להסיר את '+p.n+' מהעץ?')){D.tree.splice(i,1);save();renderTree();}};
+  e.onpointerdown=ev=>{ev.preventDefault();e.setPointerCapture(ev.pointerId);e.classList.add('drag');
+   const r=t.getBoundingClientRect(),ox=(r.right-ev.clientX)-p.x,oy=(ev.clientY-r.top)-p.y;
+   e.onpointermove=m=>{p.x=Math.max(0,Math.min(r.width-e.offsetWidth,(r.right-m.clientX)-ox));
+    p.y=Math.max(0,Math.min(r.height-e.offsetHeight,(m.clientY-r.top)-oy));
+    e.style.right=p.x+'px';e.style.top=p.y+'px';};
+   e.onpointerup=()=>{e.onpointermove=null;e.onpointerup=null;e.classList.remove('drag');save();};};
+  t.appendChild(e);});}
+function addNode(){const n=val('nd-n');if(!n)return;D.tree=D.tree||[];
+ D.tree.push({n,d:val('nd-d'),x:40+((D.tree.length*30)%300),y:150+((D.tree.length*45)%300)});
+ save();clr('nd-n','nd-d');renderTree();}
+function resetTree(){if(confirm('לאפס את כל מיקומי העץ?')){D.tree=SEED.map(o=>({...o}));save();renderTree();}}
+
+/* ===== משותף ===== */
+function del(k,i){if(!confirm('למחוק?'))return;D[k].splice(i,1);save();all();}
+function expJson(){const b=new Blob([JSON.stringify(D)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);
+ a.download='baba-dede-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+function impJson(el){const f=el.files[0];if(!f)return;const r=new FileReader();
+ r.onload=e=>{try{const d=JSON.parse(e.target.result);
+  if(!confirm('לייבא ולהחליף את התוכן הנוכחי?'))return;
+  D=Object.assign({},BLANK,d);save();all();alert('הייבוא הושלם.');}catch(x){alert('הקובץ אינו תקין.');}};
+ r.readAsText(f);el.value='';}
+function stats(){const s=$('stats');if(!s)return;
+ let kb=0;try{kb=Math.round((localStorage.getItem(KEY)||'').length/1024);}catch(e){}
+ s.innerHTML=`פרקים: ${D.stories.length} · תוספות לקריירה: ${D.cv.length} · תמונות: ${D.photos.length}
+  · מסמכים: ${D.docs.length} · מתכונים: ${D.recipes.length+D.rphotos.length}
+  · קישורים: ${(D.links||[]).length} · שאלות: ${D.qa.length} · נפח שמור: ${kb} KB`;}
+
+function all(){renderHome();renderBday();renderBaked();renderTime();renderCv2();renderPlaces();renderFamily();
+ renderRecipesBaked();renderModes();tvStart();renderArch();renderLinks();
+ renderStories();renderCv();renderMedia('photos');renderMedia('docs');renderMedia('rphotos');
+ renderRecipes();renderQa();renderTree();stats();}
+all();
+
+/* ===== התקנה כאפליקציה ===== */
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))
+ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+let DEFERRED=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEFERRED=e;
+ const b=document.createElement('button');b.className='btn';b.id='installbtn';
+ b.style.cssText='position:fixed;bottom:18px;left:18px;z-index:80;box-shadow:var(--shadow-l)';
+ b.textContent='התקנה כאפליקציה';
+ b.onclick=async()=>{b.remove();DEFERRED.prompt();await DEFERRED.userChoice;DEFERRED=null;};
+ document.body.appendChild(b);});
+</script>
+</body>
+</html>
