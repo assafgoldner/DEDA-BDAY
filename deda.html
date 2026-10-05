@@ -23,10 +23,15 @@
   --shadow-l:0 8px 30px rgba(120,85,60,.14);
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);
- font-family:"Assistant","Heebo","Rubik","Segoe UI",system-ui,sans-serif;line-height:1.75}
-a{color:var(--acc-d)}
+ font-family:"Assistant","Heebo","Rubik","Segoe UI",system-ui,sans-serif;line-height:1.75;
+ overflow-x:hidden;-webkit-tap-highlight-color:rgba(224,122,95,.15)}
+body.noscroll{overflow:hidden;position:fixed;width:100%}
+a{color:var(--acc-d);overflow-wrap:anywhere}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+img{max-width:100%}
+button{font-family:inherit}
 
 /* ---------- nav ---------- */
 nav{position:sticky;top:0;z-index:60;background:rgba(253,248,240,.93);
@@ -235,8 +240,23 @@ label{display:block;font-size:.85rem;color:var(--ink2);margin:11px 0 4px}
 #lb .prev{right:14px} #lb .next{left:14px}
 #lb .close{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.14);color:#fff;
  border:0;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer}
-@media(max-width:820px){#lb .box{flex-direction:column;overflow:auto}
- #lb .side{flex:none;width:100%} #lb img{max-height:48vh} #lb .nav{display:none}}
+#lb .bar{display:none}
+@media(max-width:820px){
+ #lb{padding:0;align-items:stretch}
+ #lb .box{flex-direction:column;gap:0;max-height:100vh;height:100dvh;align-items:stretch}
+ #lb .pic{flex:0 0 auto;padding:52px 10px 6px;touch-action:pan-y}
+ #lb img{max-height:46vh;border-radius:9px}
+ #lb .side{flex:1 1 auto;width:100%;overflow:auto;padding:4px 18px 86px;-webkit-overflow-scrolling:touch}
+ #lb .nav{display:none}
+ #lb .close{top:max(10px,env(safe-area-inset-top));left:10px;width:44px;height:44px;font-size:1.5rem}
+ #lb .bar{display:flex;position:fixed;inset:auto 0 0 0;gap:10px;align-items:center;
+  justify-content:space-between;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(transparent,rgba(32,22,14,.92) 38%)}
+ #lb .bar button{flex:1;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:14px;
+  height:52px;font:inherit;font-size:1.5rem;cursor:pointer}
+ #lb .bar button:active{background:rgba(255,255,255,.32)}
+ #lb .bar .ctr{flex:0 0 auto;color:#f3e9d8;font-size:.86rem;min-width:72px;text-align:center}
+}
 
 /* ---------- recipes ---------- */
 .rec-wrap{display:flex;gap:22px;margin-top:15px;align-items:flex-start}
@@ -306,8 +326,57 @@ label{display:block;font-size:.85rem;color:var(--ink2);margin:11px 0 4px}
 .lk a:hover{text-decoration:underline}
 .lk small{display:block;color:var(--ink2)}
 
-footer{background:#4a3a30;color:#f0e2d2;text-align:center;padding:30px;font-size:.9rem}
+footer{background:#4a3a30;color:#f0e2d2;text-align:center;padding:30px;font-size:.9rem;
+ padding-bottom:calc(30px + env(safe-area-inset-bottom))}
 footer b{color:var(--gold)}
+
+/* ================= התאמות לנייד ================= */
+@media(max-width:620px){
+ .wrap{padding:0 14px}
+ section{padding:22px 0 54px}
+ h2{font-size:1.55rem}
+ h3{font-size:1.1rem}
+ .lead{font-size:.95rem;margin-bottom:20px}
+ .card{padding:16px 16px;border-radius:15px}
+ .hero{padding:28px 18px;border-radius:20px;gap:24px}
+ .hero h1{font-size:2.2rem}
+ .hero-pic{max-width:240px;padding-bottom:42px}
+ .stats{grid-template-columns:repeat(2,1fr);gap:10px}
+ .stat b{font-size:1.45rem}
+ .tiles{grid-template-columns:repeat(2,1fr);gap:11px}
+ .htile{padding:15px 13px;border-radius:15px}
+ .htile .ic{font-size:1.4rem}
+ .htile b{font-size:.96rem}
+ .htile span{font-size:.79rem}
+ .g3{grid-template-columns:repeat(2,1fr);gap:10px}
+ .g2,.g4{grid-template-columns:1fr}
+ .tile .cap{font-size:.72rem;padding:18px 7px 6px}
+ .era-t{font-size:1.1rem}
+ /* מטרות מגע גדולות מספיק */
+ .btn{padding:11px 18px;min-height:44px}
+ .btn.sm{padding:9px 14px;min-height:38px}
+ input,textarea,select{font-size:16px;min-height:46px}  /* 16px מונע זום אוטומטי ב-iOS */
+ .opt{font-size:1.02rem;padding:14px 16px}
+ .tv-q{font-size:1.2rem;max-width:none}
+ .tv-score{font-size:2.2rem}
+ .modes{gap:7px}
+ .modes .btn{flex:1 1 44%}
+ .row{gap:8px}
+ .tl{padding-right:18px;margin-right:6px}
+ .tl .it:before{right:-25px}
+ .bday{padding:20px 16px}
+ .bday .num{font-size:2.3rem}
+ .rec-scan{max-width:100%}
+ #tree{height:420px}
+ .mapbox{padding:10px}
+ .fgen-t{font-size:1rem}
+ .brw{columns:1}
+ table,.pl-card ul{font-size:.9rem}
+}
+@media(max-width:380px){
+ .g3,.tiles,.stats{grid-template-columns:1fr}
+ .hero h1{font-size:1.95rem}
+}
 </style>
 </head>
 <body>
@@ -383,6 +452,10 @@ footer b{color:var(--gold)}
     <div><b>ארכיון המשפחה</b> <span class="tag" id="arch-n"></span></div>
     <button class="btn sec sm" onclick="lbOpen(0)">צפייה במצגת מההתחלה</button>
   </div>
+  <div class="note" style="font-size:.86rem">
+    בתוך התצוגה המלאה אפשר להחליק באצבע ימינה ושמאלה כדי לעבור בין התמונות,
+    או להשתמש בחיצים שבתחתית המסך. במחשב — מקשי החיצים, ו-Esc לסגירה.
+  </div>
   <div id="arch-list" style="margin-bottom:34px"></div>
 
   <h3>תמונות שהמשפחה הוסיפה</h3>
@@ -434,7 +507,7 @@ footer b{color:var(--gold)}
     <button class="btn sec sm" onclick="mReset()">איפוס</button>
   </div>
   <div class="mapbox"><div id="map-il"></div>
-    <div class="maphint">גלגלת או כפתורי הזום להתקרבות · גרירה להזזה</div></div>
+    <div class="maphint">במחשב: גלגלת או כפתורי הזום, וגרירה להזזה · בנייד: צביטה להגדלה, גרירה להזזה, הקשה כפולה להתקרבות</div></div>
   <h3>בישראל</h3>
   <div class="grid g2" id="pl-il" style="margin-bottom:34px"></div>
   <h3>בעולם</h3>
@@ -581,6 +654,11 @@ footer b{color:var(--gold)}
       <div id="lb-story" class="st"></div>
       <div id="lb-num" class="nums"></div>
     </div>
+  </div>
+  <div class="bar">
+    <button onclick="lbStep(1)" aria-label="הקודמת">›</button>
+    <div class="ctr" id="lb-ctr"></div>
+    <button onclick="lbStep(-1)" aria-label="הבאה">‹</button>
   </div>
 </div>
 
@@ -833,16 +911,35 @@ function mz(f,cx,cy){if(!VB)return;const [x,y,w,h]=VB;
  const px=cx==null?0.5:cx, py=cy==null?0.5:cy;
  VB=[x+(w-nw)*px, y+(h-nh)*py, nw, nh];applyVB();}
 function mReset(){VB=VB0.slice();applyVB();}
-function bindMap(){const s=document.getElementById('themap');if(!s)return;
+function bindMap(){const s=document.getElementById('themap');if(!s||!s.addEventListener)return;
  s.addEventListener('wheel',e=>{e.preventDefault();const r=s.getBoundingClientRect();
   mz(e.deltaY>0?1.15:0.87,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);},{passive:false});
- let drag=null;
- s.addEventListener('pointerdown',e=>{if(e.target.closest('.pin'))return;
-  drag={x:e.clientX,y:e.clientY,vb:VB.slice()};s.setPointerCapture(e.pointerId);s.classList.add('grabbing');});
- s.addEventListener('pointermove',e=>{if(!drag)return;const r=s.getBoundingClientRect();
+ const pts=new Map(); let drag=null, pinch=null;
+ const dist=()=>{const a=[...pts.values()];return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);};
+ const mid =()=>{const a=[...pts.values()];const r=s.getBoundingClientRect();
+   return [((a[0].x+a[1].x)/2-r.left)/r.width,((a[0].y+a[1].y)/2-r.top)/r.height];};
+ s.addEventListener('pointerdown',e=>{
+  pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  try{s.setPointerCapture(e.pointerId);}catch(_){}
+  if(pts.size===2){drag=null;pinch={d:dist(),vb:VB.slice()};return;}
+  if(e.target.closest&&e.target.closest('.pin'))return;
+  drag={x:e.clientX,y:e.clientY,vb:VB.slice()};s.classList.add('grabbing');});
+ s.addEventListener('pointermove',e=>{
+  if(pts.has(e.pointerId))pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  const r=s.getBoundingClientRect();
+  if(pinch&&pts.size===2){const d=dist();if(d>4){
+    const f=pinch.d/d, nw=Math.min(VB0[2]*1.1,Math.max(VB0[2]*0.10,pinch.vb[2]*f)),
+          nh=nw*(VB0[3]/VB0[2]), m=mid();
+    VB=[pinch.vb[0]+(pinch.vb[2]-nw)*m[0], pinch.vb[1]+(pinch.vb[3]-nh)*m[1], nw, nh];applyVB();}
+   return;}
+  if(!drag)return;
   VB=[drag.vb[0]-(e.clientX-drag.x)/r.width*drag.vb[2],
       drag.vb[1]-(e.clientY-drag.y)/r.height*drag.vb[3],drag.vb[2],drag.vb[3]];applyVB();});
- s.addEventListener('pointerup',()=>{drag=null;s.classList.remove('grabbing');});}
+ const end=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;
+  if(pts.size===0){drag=null;s.classList.remove('grabbing');}};
+ s.addEventListener('pointerup',end);s.addEventListener('pointercancel',end);
+ s.addEventListener('dblclick',e=>{const r=s.getBoundingClientRect();
+  mz(0.6,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);});}
 
 function renderPlaces(){
  const il=PLACES.il||[],wd=PLACES.world||[];
@@ -1017,6 +1114,7 @@ function renderArch(){const w=$('arch-list');
   <div class="grid g3">`+e.items.map(p=>`<div class="tile"><img src="${p.src}" loading="lazy" alt="${esc(p.cap)}" onclick="lbOpen(${ARCHIVE.indexOf(p)})">
   ${p.cap?`<div class="cap"><b>${esc(p.year||'')}</b> ${esc(p.cap)}</div>`:''}</div>`).join('')+`</div></div>`).join('');}
 let LBI=-1;
+function lbShow(){$('lb').style.display='flex';document.body.classList.add('noscroll');}
 function lbOpen(i){const p=ARCHIVE[i];if(!p)return;LBI=i;
  $('lb-i').src=p.src;$('lb-i').alt=p.cap||'';
  $('lb-yr').textContent=p.year||'שנה לא ידועה';
@@ -1026,18 +1124,30 @@ function lbOpen(i){const p=ARCHIVE[i];if(!p)return;LBI=i;
  $('lb-story').innerHTML=s?`<h4>${esc(s.title)}</h4>${s.body.map(b=>'<p>'+nl(b)+'</p>').join('')}
    <p style="opacity:.6;font-size:.8rem">${esc(s.src||'')}</p>`:'';
  $('lb-num').textContent=`תמונה ${i+1} מתוך ${ARCHIVE.length}`;
- $('lb').style.display='flex';document.querySelector('#lb .side').scrollTop=0;}
+ $('lb-ctr').textContent=`${i+1} / ${ARCHIVE.length}`;
+ lbShow();document.querySelector('#lb .side').scrollTop=0;
+ [1,-1].forEach(d=>{const n=ARCHIVE[(i+d+ARCHIVE.length)%ARCHIVE.length];
+  if(n&&typeof Image!=='undefined'){const im=new Image();im.src=n.src;}});}
 function lbRec(i){const r=RECIPES[i];if(r)lb(r.img,r.t+(r.date?' · '+r.date:''));}
 function lbMedia(k,i){const p=(D[k]||[])[i];if(p)lb(p.src,p.cap);}
 function lb(src,cap){LBI=-1;$('lb-i').src=src;
  $('lb-yr').textContent='';$('lb-era').textContent='';
- $('lb-cap').innerHTML=nl(cap||'');$('lb-story').innerHTML='';$('lb-num').textContent='';
- $('lb').style.display='flex';}
+ $('lb-cap').innerHTML=nl(cap||'');$('lb-story').innerHTML='';
+ $('lb-num').textContent='';$('lb-ctr').textContent='';
+ lbShow();}
 function lbStep(d){if(LBI<0)return;lbOpen((LBI+d+ARCHIVE.length)%ARCHIVE.length);}
-function lbClose(){$('lb').style.display='none';LBI=-1;}
+function lbClose(){$('lb').style.display='none';LBI=-1;document.body.classList.remove('noscroll');}
 $('lb').addEventListener('click',e=>{if(e.target.id==='lb')lbClose();});
 document.addEventListener('keydown',e=>{if($('lb').style.display!=='flex')return;
  if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbStep(-1);if(e.key==='ArrowLeft')lbStep(1);});
+/* החלקה באצבע להעברת תמונות */
+(function(){const area=document.querySelector('#lb .pic');if(!area||!area.addEventListener)return;
+ let sx=0,sy=0,t0=0,on=false;
+ area.addEventListener('pointerdown',e=>{if(LBI<0)return;on=true;sx=e.clientX;sy=e.clientY;t0=Date.now();});
+ area.addEventListener('pointerup',e=>{if(!on)return;on=false;
+  const dx=e.clientX-sx,dy=e.clientY-sy,dt=Date.now()-t0;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.6&&dt<800)lbStep(dx>0?-1:1);});
+ area.addEventListener('pointercancel',()=>{on=false;});})();
 
 /* ===== עץ ===== */
 const SEED=[{n:'ליאו (דדה)',d:'1911–2013',x:300,y:40},{n:'מיה (בבה)',d:'1921–2015',x:470,y:40},
